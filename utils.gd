@@ -2,7 +2,10 @@ extends Node
 
 const MAX_LEVEL: int = 1
 
+var click_sound: AudioStreamOggVorbis = preload("res://Assets/click.ogg")
+
 var deaths: int = 0  # reset on new level
+var _sound_player: AudioStreamPlayer
 
 
 # yes this script plays the sound.
@@ -10,6 +13,14 @@ var deaths: int = 0  # reset on new level
 func _ready() -> void:
 	var sound: PackedScene = ResourceLoader.load("res://epicness.tscn")
 	add_child(sound.instantiate())
+	
+	_sound_player = AudioStreamPlayer.new()
+	add_child(_sound_player)
+
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("click"):
+		button_click()
 
 
 func get_current_level() -> Level:
@@ -34,3 +45,13 @@ func next_level() -> void:
 	if !possible:
 		# Win
 		get_tree().quit()
+
+
+func button_click() -> void:
+	play_sfx(click_sound)
+
+
+func play_sfx(sfx: AudioStreamOggVorbis) -> void:
+	_sound_player.stop()
+	_sound_player.stream = sfx
+	_sound_player.play()

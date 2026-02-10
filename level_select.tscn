@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://cjyd8jsa0mqi6"]
+
+[ext_resource type="Script" uid="uid://qyepjklajmvq" path="res://level_select.gd" id="1_wevku"]
+[ext_resource type="Texture2D" uid="uid://dxd3yyn7or1a4" path="res://Assets/adum.png" id="2_bv7n5"]
+[ext_resource type="Theme" uid="uid://biakj4sw07nf" path="res://theme.tres" id="4_1iyaf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fu7sn"]
+font_size = 54
+font_color = Color(0, 0, 0, 1)
+outline_size = 28
+outline_color = Color(0.8533018, 0.36928457, 0.14164355, 1)
+
+[node name="Levels" type="Control" unique_id=327771935]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wevku")
+
+[node name="Background" type="TextureRect" parent="." unique_id=2112020329]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bv7n5")
+stretch_mode = 1
+
+[node name="Title" type="Label" parent="." unique_id=886010733]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -358.0
+offset_top = -532.0
+offset_right = 386.0
+offset_bottom = -453.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level Select"
+label_settings = SubResource("LabelSettings_fu7sn")
+horizontal_alignment = 1
+
+[node name="Back" type="Button" parent="." unique_id=109784]
+layout_mode = 0
+offset_left = 1639.0
+offset_top = 982.0
+offset_right = 1908.0
+offset_bottom = 1066.0
+theme = ExtResource("4_1iyaf")
+text = "Back"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

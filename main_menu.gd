@@ -3,3 +3,7 @@ extends Control
 
 func _on_play_pressed() -> void:
 	Utils.load_level(1)
+
+
+func _on_level_select_pressed() -> void:
+	get_tree().change_scene_to_file("res://level_select.tscn")
