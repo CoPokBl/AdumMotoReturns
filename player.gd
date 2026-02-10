@@ -1,7 +1,7 @@
 class_name Player extends RigidBody2D
 
-const SPEED: float = 1800
-const TILT_SPEED: float = 25
+const SPEED: float = 18000
+const TILT_SPEED: float = 700_000
 
 
 func _ready() -> void:
@@ -17,19 +17,19 @@ func _physics_process(delta: float) -> void:
 	%DeathsLabel.text = "Deaths: " + str(Utils.deaths)
 	
 	if Input.is_action_pressed("forward"):
-		apply_central_impulse(Vector2(delta * SPEED, 0))
+		apply_central_force(Vector2(SPEED, 0))
 	
 	if Input.is_action_pressed("backward"):
-		apply_central_impulse(Vector2(SPEED * -delta, 0))
+		apply_central_force(Vector2(-SPEED, 0))
 	
 	if Input.is_action_pressed("tilt_left"):
-		angular_velocity -= delta * TILT_SPEED
+		apply_torque(-TILT_SPEED)
 	
 	if Input.is_action_pressed("tilt_right"):
-		angular_velocity += delta * TILT_SPEED
+		apply_torque(TILT_SPEED)
 	
 	# Void death
-	# adam says it's important
+	# adum says it's important
 	if position.y > Utils.get_current_level().void_death_level:
 		Utils.get_current_level().die()
 
