@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://26tvrf5g2hp8"]
+
+[ext_resource type="Script" uid="uid://cw3s574f2fb8a" path="res://LevelAssets/win.gd" id="1_0pp3k"]
+[ext_resource type="Texture2D" uid="uid://1adqsmq6e8bt" path="res://Assets/teslacoil.png" id="1_q1oqd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0pp3k"]
+size = Vector2(172, 174)
+
+[node name="Win" type="Area2D" unique_id=886161782]
+script = ExtResource("1_0pp3k")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1085620328]
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("1_q1oqd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1116334571]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_0pp3k")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://b4grgfhy3svau"]
+
+[ext_resource type="AudioStream" uid="uid://b8spv5npv0tcw" path="res://Assets/adummoto.ogg" id="1_gcti1"]
+
+[node name="EPICNESS" type="AudioStreamPlayer" unique_id=623944344]
+stream = ExtResource("1_gcti1")
+autoplay = true

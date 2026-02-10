@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dqn1ctd61yjkd"]
+
+[ext_resource type="Script" uid="uid://cyg08ov6caeox" path="res://Levels/level.gd" id="1_dj5hn"]
+[ext_resource type="PackedScene" uid="uid://bpfivjsbt6mq7" path="res://player.tscn" id="2_ojro4"]
+[ext_resource type="PackedScene" uid="uid://dvxcgrj50lify" path="res://LevelAssets/platform.tscn" id="3_xv7eh"]
+[ext_resource type="PackedScene" uid="uid://26tvrf5g2hp8" path="res://LevelAssets/win.tscn" id="4_ijnin"]
+[ext_resource type="PackedScene" uid="uid://raxkg36jlp8" path="res://LevelAssets/die.tscn" id="5_lr0ko"]
+
+[node name="Level" type="Node2D" unique_id=1046853199]
+script = ExtResource("1_dj5hn")
+number = 2
+
+[node name="Player" parent="." unique_id=1501689367 instance=ExtResource("2_ojro4")]
+position = Vector2(85, -163)
+
+[node name="Platform" parent="." unique_id=69979720 instance=ExtResource("3_xv7eh")]
+
+[node name="Platform2" parent="." unique_id=859082933 instance=ExtResource("3_xv7eh")]
+position = Vector2(1496.9999, 25.000076)
+rotation = -0.4557658
+scale = Vector2(2.8358684, 0.43009594)
+skew = 0.3239876
+
+[node name="Win" parent="." unique_id=886161782 instance=ExtResource("4_ijnin")]
+position = Vector2(2338, -171)
+
+[node name="Die" parent="." unique_id=1759583263 instance=ExtResource("5_lr0ko")]
+position = Vector2(-1318, -127)
+scale = Vector2(0.6399988, 0.48000014)

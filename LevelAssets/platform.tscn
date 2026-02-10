@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dvxcgrj50lify"]
+
+[ext_resource type="Texture2D" uid="uid://dxd3yyn7or1a4" path="res://Assets/adum.png" id="1_8ljbe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6f6w"]
+size = Vector2(148, 140)
+
+[node name="Platform" type="StaticBody2D" unique_id=69979720]
+scale = Vector2(21.055994, 0.44)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=288961708]
+texture = ExtResource("1_8ljbe")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1492412103]
+shape = SubResource("RectangleShape2D_m6f6w")
+metadata/_edit_group_ = true

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://raxkg36jlp8"]
+
+[ext_resource type="Script" uid="uid://bn7vkvgayme6x" path="res://LevelAssets/die.gd" id="1_rbys5"]
+[ext_resource type="Texture2D" uid="uid://1usgeid3qwi5" path="res://Assets/die.png" id="2_wtn14"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_302sc"]
+size = Vector2(743, 417)
+
+[node name="Die" type="Area2D" unique_id=1759583263]
+script = ExtResource("1_rbys5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1761944341]
+position = Vector2(-1.5, -0.5)
+shape = SubResource("RectangleShape2D_302sc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1855587827]
+texture = ExtResource("2_wtn14")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

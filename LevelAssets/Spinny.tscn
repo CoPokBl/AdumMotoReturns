@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://g4v7emf5ayub"]
+
+[ext_resource type="Texture2D" uid="uid://dxd3yyn7or1a4" path="res://Assets/adum.png" id="1_dnbqa"]
+[ext_resource type="Script" uid="uid://dfn7ycsypmptj" path="res://LevelAssets/spinny.gd" id="1_lfda6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfda6"]
+size = Vector2(148, 140)
+
+[node name="Spinny" type="AnimatableBody2D" unique_id=508629565]
+script = ExtResource("1_lfda6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=136096754]
+texture = ExtResource("1_dnbqa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=213287569]
+shape = SubResource("RectangleShape2D_lfda6")

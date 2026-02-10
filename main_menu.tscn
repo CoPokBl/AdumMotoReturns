@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://db4sirjvvyawn"]
+
+[ext_resource type="Texture2D" uid="uid://dxd3yyn7or1a4" path="res://Assets/adum.png" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://ci2k7evljipyb" path="res://main_menu.gd" id="1_fu7sn"]
+[ext_resource type="Texture2D" uid="uid://bnriwwyrbamdr" path="res://Assets/wheel.png" id="2_7vrkn"]
+[ext_resource type="Theme" uid="uid://biakj4sw07nf" path="res://theme.tres" id="4_jix8l"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fu7sn"]
+font_size = 54
+font_color = Color(0, 0, 0, 1)
+outline_size = 28
+outline_color = Color(0.8533018, 0.36928457, 0.14164355, 1)
+
+[node name="MainMenu" type="Control" unique_id=327771935]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fu7sn")
+
+[node name="Background" type="TextureRect" parent="." unique_id=2112020329]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_06t4h")
+stretch_mode = 1
+
+[node name="Fore" type="TextureRect" parent="." unique_id=1734317607]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -825.0
+offset_top = -206.0
+offset_right = 825.0
+offset_bottom = 206.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7vrkn")
+
+[node name="Title" type="Label" parent="." unique_id=886010733]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -341.0
+offset_top = -189.0
+offset_right = 403.0
+offset_bottom = -110.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "ADUM MOTO RETURNS"
+label_settings = SubResource("LabelSettings_fu7sn")
+horizontal_alignment = 1
+
+[node name="Play" type="Button" parent="." unique_id=109784]
+layout_mode = 0
+offset_left = 591.0
+offset_top = 838.0
+offset_right = 860.0
+offset_bottom = 916.0
+theme = ExtResource("4_jix8l")
+text = "Play"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]

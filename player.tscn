@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://bpfivjsbt6mq7"]
+
+[ext_resource type="Script" uid="uid://3y8frnttyrlt" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://kflk2to8yd8" path="res://Assets/sky.png" id="2_hqtel"]
+[ext_resource type="Texture2D" uid="uid://dxd3yyn7or1a4" path="res://Assets/adum.png" id="2_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://chllreyymafqr" path="res://Assets/cloud.png" id="3_sweqy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_onrkg"]
+font_size = 38
+font_color = Color(0.32544088, 0.3254409, 0.32544088, 1)
+outline_size = 8
+outline_color = Color(0.8409475, 0.4097948, 0.13383946, 1)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_onrkg"]
+friction = 0.3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
+size = Vector2(148, 140)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
+size = Vector2(150, 17)
+
+[node name="Player" type="Node2D" unique_id=1001854450]
+
+[node name="CloudParallax" type="Parallax2D" parent="." unique_id=906885427]
+unique_name_in_owner = true
+scroll_scale = Vector2(0.1, 1)
+repeat_size = Vector2(7680, 0)
+autoscroll = Vector2(-10, 0)
+
+[node name="Cloud" type="TextureRect" parent="CloudParallax" unique_id=1092856670]
+offset_left = -1510.0
+offset_top = -550.0
+offset_right = 6170.0
+offset_bottom = 530.0
+texture = ExtResource("3_sweqy")
+
+[node name="FeetCam" type="Camera2D" parent="." unique_id=531662432]
+
+[node name="Sky" type="TextureRect" parent="FeetCam" unique_id=589232948]
+z_index = -10
+offset_left = -962.0
+offset_top = -550.0
+offset_right = 958.0
+offset_bottom = 530.0
+scale = Vector2(1, 1.0800006)
+texture = ExtResource("2_hqtel")
+
+[node name="LevelName" type="Label" parent="FeetCam" unique_id=1006005452]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -255.0
+offset_top = -539.0
+offset_right = 264.0
+offset_bottom = -486.0
+grow_horizontal = 2
+text = "Level lmao something broke"
+label_settings = SubResource("LabelSettings_onrkg")
+horizontal_alignment = 1
+
+[node name="DeathsLabel" type="Label" parent="FeetCam" unique_id=1631722335]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -255.0
+offset_top = -475.22
+offset_right = 264.0
+offset_bottom = -422.22
+grow_horizontal = 2
+text = "Deaths:"
+label_settings = SubResource("LabelSettings_onrkg")
+horizontal_alignment = 1
+
+[node name="Body" type="RigidBody2D" parent="." unique_id=1501689367]
+physics_material_override = SubResource("PhysicsMaterial_onrkg")
+script = ExtResource("1_onrkg")
+
+[node name="Pic" type="Sprite2D" parent="Body" unique_id=394957607]
+texture = ExtResource("2_i3pqv")
+
+[node name="Shape" type="CollisionShape2D" parent="Body" unique_id=1720817179]
+shape = SubResource("RectangleShape2D_hqtel")
+
+[node name="HeadHurt" type="Area2D" parent="Body" unique_id=267441761]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/HeadHurt" unique_id=444295374]
+position = Vector2(0, -62.5)
+shape = SubResource("RectangleShape2D_onrkg")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Body" unique_id=1911634008]
+remote_path = NodePath("../../FeetCam")
+update_rotation = false
+update_scale = false
+
+[connection signal="body_entered" from="Body/HeadHurt" to="Body" method="_on_head_hurt_body_entered"]
