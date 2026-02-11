@@ -1,5 +1,6 @@
 extends Node
 
+const _data_path: String = "user://achievements.cfg"
 const _box_prefab: PackedScene = preload("res://Prefabs/achievement_unlocked.tscn")
 
 var _data: Dictionary
@@ -10,7 +11,7 @@ func _ready() -> void:
 	_data = JSON.parse_string(load_text_file("res://achievements.json"))
 	
 	_player_data = ConfigFile.new()
-	_player_data.load("user://achievements.cfg")
+	_player_data.load(_data_path)
 
 
 func grant(ach: String) -> void:
@@ -22,6 +23,7 @@ func grant(ach: String) -> void:
 	
 	# award
 	_player_data.set_value("unlocked", ach, true)
+	_player_data.save(_data_path)
 	
 	var box: AchievementBox = _box_prefab.instantiate()
 	box.load_data(_data[ach])

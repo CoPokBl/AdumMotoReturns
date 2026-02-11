@@ -37,8 +37,8 @@ func _physics_process(_delta: float) -> void:
 		Utils.get_current_level().die()
 
 
-func _on_head_hurt_body_entered(body: Node2D) -> void:
-	if body.get_parent() is Player:
+func _on_head_hurt_body_entered(ebody: Node2D) -> void:
+	if ebody.get_parent() is Player:
 		return
 	
 	Utils.get_current_level().die()
