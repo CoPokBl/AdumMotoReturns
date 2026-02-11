@@ -21,6 +21,7 @@ size = Vector2(148, 140)
 size = Vector2(150, 17)
 
 [node name="Player" type="Node2D" unique_id=1001854450]
+script = ExtResource("1_onrkg")
 
 [node name="CloudParallax" type="Parallax2D" parent="." unique_id=906885427]
 unique_name_in_owner = true
@@ -79,7 +80,6 @@ mass = 5.0
 physics_material_override = SubResource("PhysicsMaterial_onrkg")
 can_sleep = false
 continuous_cd = 2
-script = ExtResource("1_onrkg")
 
 [node name="Pic" type="Sprite2D" parent="Body" unique_id=394957607]
 texture = ExtResource("2_i3pqv")
@@ -98,4 +98,4 @@ remote_path = NodePath("../../FeetCam")
 update_rotation = false
 update_scale = false
 
-[connection signal="body_entered" from="Body/HeadHurt" to="Body" method="_on_head_hurt_body_entered"]
+[connection signal="body_entered" from="Body/HeadHurt" to="." method="_on_head_hurt_body_entered"]

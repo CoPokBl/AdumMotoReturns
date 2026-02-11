@@ -8,22 +8,35 @@
 [ext_resource type="PackedScene" uid="uid://g4v7emf5ayub" path="res://LevelAssets/Spinny.tscn" id="6_302sc"]
 [ext_resource type="Texture2D" uid="uid://1adqsmq6e8bt" path="res://Assets/teslacoil.png" id="7_aunfx"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_aunfx"]
+font_size = 181
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j32wv"]
 size = Vector2(67, 61)
 
-[node name="Level" type="Node2D" unique_id=1046853199]
+[node name="Level" type="Node2D" unique_id=1046853199 node_paths=PackedStringArray("player")]
 script = ExtResource("1_t21ke")
 number = 1
+player = NodePath("Player")
 
 [node name="Player" parent="." unique_id=1501689367 instance=ExtResource("2_fy36t")]
 position = Vector2(85, -163)
 
 [node name="Platform2" parent="." unique_id=69979720 instance=ExtResource("3_njhy2")]
-position = Vector2(39, 671)
-scale = Vector2(22853.352, 10)
+position = Vector2(39, 534)
+scale = Vector2(28.88, 8.04)
+
+[node name="Platform3" parent="." unique_id=1479499347 instance=ExtResource("3_njhy2")]
+position = Vector2(3995, 1651)
+scale = Vector2(28.88, 8.04)
 
 [node name="Win" parent="." unique_id=886161782 instance=ExtResource("4_njhy2")]
 position = Vector2(1393, -429)
+
+[node name="Win2" parent="." unique_id=840425420 instance=ExtResource("4_njhy2")]
+position = Vector2(5955.0005, 912)
+scale = Vector2(2.03, 2.03)
+grant_achievements = Array[String](["therealwinner"])
 
 [node name="Die" parent="." unique_id=1759583263 instance=ExtResource("5_m6f6w")]
 position = Vector2(-1318, -127)
@@ -33,6 +46,14 @@ scale = Vector2(0.6399988, 0.48000014)
 position = Vector2(1401, -134.00002)
 scale = Vector2(4.368011, 0.19999957)
 speed = 60.0
+
+[node name="Label" type="Label" parent="." unique_id=1796049005]
+offset_left = 3487.0
+offset_top = 521.0
+offset_right = 5426.0
+offset_bottom = 769.0
+text = "You're the real winner"
+label_settings = SubResource("LabelSettings_aunfx")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=287436207]
 position = Vector2(-1007, -342)

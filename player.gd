@@ -1,7 +1,10 @@
-class_name Player extends RigidBody2D
+class_name Player extends Node2D
 
 const SPEED: float = 18000
 const TILT_SPEED: float = 700_000
+
+@onready var body: RigidBody2D = $Body
+@onready var camera: Camera2D = $FeetCam
 
 
 func _ready() -> void:
@@ -13,20 +16,20 @@ func _process(_delta: float) -> void:
 	%CloudParallax.position.y = position.y
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	%DeathsLabel.text = "Deaths: " + str(Utils.deaths)
 	
 	if Input.is_action_pressed("forward"):
-		apply_central_force(Vector2(SPEED, 0))
+		body.apply_central_force(Vector2(SPEED, 0))
 	
 	if Input.is_action_pressed("backward"):
-		apply_central_force(Vector2(-SPEED, 0))
+		body.apply_central_force(Vector2(-SPEED, 0))
 	
 	if Input.is_action_pressed("tilt_left"):
-		apply_torque(-TILT_SPEED)
+		body.apply_torque(-TILT_SPEED)
 	
 	if Input.is_action_pressed("tilt_right"):
-		apply_torque(TILT_SPEED)
+		body.apply_torque(TILT_SPEED)
 	
 	# Void death
 	# adum says it's important
@@ -35,7 +38,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_head_hurt_body_entered(body: Node2D) -> void:
-	if body is Player:
+	if body.get_parent() is Player:
 		return
 	
 	Utils.get_current_level().die()

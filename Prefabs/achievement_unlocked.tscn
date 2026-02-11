@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://bew7y4benwsb5"]
+
+[ext_resource type="Script" uid="uid://dgrkoumq02nea" path="res://Prefabs/achievement_box.gd" id="1_58hf4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mp6ne"]
+font_color = Color(0.4509804, 0.07450981, 0.015686275, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xno7p"]
+font_size = 52
+font_color = Color(0.12955844, 0.12955847, 0.12955844, 1)
+outline_size = 9
+outline_color = Color(0.8870539, 0.25690937, 0.13732079, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1lwjx"]
+font_color = Color(0.30043143, 0, 0.012014169, 1)
+
+[node name="AchievementUnlocked" type="Control" unique_id=1284097376]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 960.0
+offset_top = 540.0
+offset_right = 960.001
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_58hf4")
+
+[node name="Display" type="Control" parent="." unique_id=885301217]
+z_index = 3
+anchors_preset = 0
+offset_left = -321.0
+offset_top = 347.0
+offset_right = -281.0
+offset_bottom = 387.0
+
+[node name="Background2" type="ColorRect" parent="Display" unique_id=936048576]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 619.0
+offset_right = 1261.0
+offset_bottom = 191.0
+grow_horizontal = 2
+color = Color(0.6744346, 0, 0.021836441, 1)
+
+[node name="Background" type="ColorRect" parent="Display" unique_id=1679549740]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 624.0
+offset_top = 5.0
+offset_right = 1256.0
+offset_bottom = 186.0
+grow_horizontal = 2
+color = Color(0.3515629, 0.3515629, 0.35156286, 1)
+
+[node name="AchUnl" type="Label" parent="Display" unique_id=517281899]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 1.0
+offset_right = 1280.0
+offset_bottom = 36.0
+text = "Achievement Unlocked"
+label_settings = SubResource("LabelSettings_mp6ne")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Title" type="Label" parent="Display" unique_id=793677357]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 637.0
+offset_top = 35.0
+offset_right = 1279.0
+offset_bottom = 107.0
+text = "You're the real winner"
+label_settings = SubResource("LabelSettings_xno7p")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Desc" type="Label" parent="Display" unique_id=948152276]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 657.0
+offset_top = 114.0
+offset_right = 1262.0
+offset_bottom = 191.0
+text = "Complete an arial summersult onto a backflip pancake parlour and  then do nothing."
+label_settings = SubResource("LabelSettings_1lwjx")
+autowrap_mode = 2

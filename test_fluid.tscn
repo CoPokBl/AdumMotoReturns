@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cmp1bhx77d1j5"]
+[gd_scene format=3 uid="uid://q5ae2w18dhw2"]
 
 [ext_resource type="Script" uid="uid://d4kq5akkly15i" path="res://addons/godot-rapier2d/faucet_2d.gd" id="1_dv1o8"]
 
@@ -8,26 +8,26 @@ size = Vector2(404, 20)
 [sub_resource type="FluidEffect2DSurfaceTensionAKINCI" id="FluidEffect2DSurfaceTensionAKINCI_dv1o8"]
 fluid_tension_coefficient = 100.0
 
-[node name="TestFluid" type="Node2D"]
+[node name="TestFluid" type="Node2D" unique_id=318860509]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1601129837]
 position = Vector2(591, 545)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1908457042]
 position = Vector2(29, 0)
 shape = SubResource("RectangleShape2D_lv57a")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1048071482]
 position = Vector2(-191, -134)
 rotation = 1.2401063
 shape = SubResource("RectangleShape2D_lv57a")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=96299215]
 position = Vector2(258, -172)
 rotation = -1.3760309
 shape = SubResource("RectangleShape2D_lv57a")
 
-[node name="Fluid2D" type="Fluid2D" parent="."]
+[node name="Fluid2D" type="Fluid2D" parent="." unique_id=1443011375]
 debug_draw = true
 density = 1000.0
 effects = Array[Resource]([SubResource("FluidEffect2DSurfaceTensionAKINCI_dv1o8")])
@@ -35,5 +35,5 @@ position = Vector2(653, -76)
 script = ExtResource("1_dv1o8")
 interval = 0.1
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1935224037]
 position = Vector2(591, 323)
