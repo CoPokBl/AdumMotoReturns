@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://nsxrky7ieabu"]
+
+[ext_resource type="Texture2D" uid="uid://dxd3yyn7or1a4" path="res://Assets/adum.png" id="1_6vmud"]
+[ext_resource type="Script" uid="uid://b54crk2b87m3o" path="res://LevelAssets/translatey.gd" id="1_38f6j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6f6w"]
+size = Vector2(148, 140)
+
+[node name="Translate" type="AnimatableBody2D" unique_id=788727901]
+script = ExtResource("1_38f6j")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=288961708]
+texture = ExtResource("1_6vmud")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1492412103]
+shape = SubResource("RectangleShape2D_m6f6w")
+metadata/_edit_group_ = true

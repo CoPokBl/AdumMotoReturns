@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://csrmold102x66"]
+
+[ext_resource type="PackedScene" uid="uid://dvxcgrj50lify" path="res://LevelAssets/platform.tscn" id="1_v7bys"]
+
+[node name="SpeedBump" type="Node2D" unique_id=619220325]
+
+[node name="Platform" parent="." unique_id=69979720 instance=ExtResource("1_v7bys")]
+position = Vector2(-38.999996, 120)
+rotation = -0.31764993
+scale = Vector2(2.3539808, 0.35944974)
+
+[node name="Platform2" parent="." unique_id=1428378960 instance=ExtResource("1_v7bys")]
+position = Vector2(584, -153.99998)
+rotation = 1.5707964
+scale = Vector2(1.8159933, 0.24000031)

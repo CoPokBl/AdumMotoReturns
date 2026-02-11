@@ -12,6 +12,7 @@ number = 2
 player = NodePath("Player")
 
 [node name="Player" parent="." unique_id=1501689367 instance=ExtResource("2_ojro4")]
+visible = false
 position = Vector2(85, -163)
 
 [node name="Platform" parent="." unique_id=69979720 instance=ExtResource("3_xv7eh")]

@@ -1,6 +1,6 @@
 extends Node
 
-const MAX_LEVEL: int = 2  # more like level count
+const MAX_LEVEL: int = 6  # more like level count
 
 var click_sound: AudioStreamOggVorbis = preload("res://Assets/click.ogg")
 

@@ -4,12 +4,25 @@
 [ext_resource type="Texture2D" uid="uid://kflk2to8yd8" path="res://Assets/sky.png" id="2_hqtel"]
 [ext_resource type="Texture2D" uid="uid://dxd3yyn7or1a4" path="res://Assets/adum.png" id="2_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://chllreyymafqr" path="res://Assets/cloud.png" id="3_sweqy"]
+[ext_resource type="Theme" uid="uid://biakj4sw07nf" path="res://theme.tres" id="4_sweqy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_onrkg"]
 font_size = 38
 font_color = Color(0.32544088, 0.3254409, 0.32544088, 1)
 outline_size = 8
 outline_color = Color(0.8409475, 0.4097948, 0.13383946, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2hs0m"]
+bg_color = Color(0.8343715, 0.4970916, 0.41088095, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.37181717, 3.7902967e-07, 4.813075e-08, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 20
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_onrkg"]
 friction = 0.3
@@ -37,43 +50,76 @@ offset_bottom = 530.0
 texture = ExtResource("3_sweqy")
 
 [node name="FeetCam" type="Camera2D" parent="." unique_id=531662432]
+zoom = Vector2(0.65, 0.65)
 
-[node name="Sky" type="TextureRect" parent="FeetCam" unique_id=589232948]
+[node name="UI" type="Control" parent="FeetCam" unique_id=578552594]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1478.0
+offset_top = -830.0
+offset_right = 1478.0
+offset_bottom = 833.0
+
+[node name="Sky" type="TextureRect" parent="FeetCam/UI" unique_id=589232948]
 z_index = -10
-offset_left = -962.0
-offset_top = -550.0
-offset_right = 958.0
-offset_bottom = 530.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(1, 1.0800006)
 texture = ExtResource("2_hqtel")
 
-[node name="LevelName" type="Label" parent="FeetCam" unique_id=1006005452]
-unique_name_in_owner = true
+[node name="VBoxContainer" type="VBoxContainer" parent="FeetCam/UI" unique_id=646121074]
+layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -255.0
-offset_top = -539.0
-offset_right = 264.0
-offset_bottom = -486.0
+offset_left = -259.5
+offset_right = 259.5
+offset_bottom = 110.0
 grow_horizontal = 2
+
+[node name="Label" type="Label" parent="FeetCam/UI/VBoxContainer" unique_id=1257270816]
+layout_mode = 2
+
+[node name="LevelName" type="Label" parent="FeetCam/UI/VBoxContainer" unique_id=1006005452]
+unique_name_in_owner = true
+layout_mode = 2
 text = "Level lmao something broke"
 label_settings = SubResource("LabelSettings_onrkg")
 horizontal_alignment = 1
 
-[node name="DeathsLabel" type="Label" parent="FeetCam" unique_id=1631722335]
+[node name="DeathsLabel" type="Label" parent="FeetCam/UI/VBoxContainer" unique_id=1631722335]
 unique_name_in_owner = true
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -255.0
-offset_top = -475.22
-offset_right = 264.0
-offset_bottom = -422.22
-grow_horizontal = 2
+layout_mode = 2
 text = "Deaths:"
 label_settings = SubResource("LabelSettings_onrkg")
 horizontal_alignment = 1
+
+[node name="Restart" type="Button" parent="FeetCam/UI" unique_id=631448054]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -301.0
+offset_top = 32.0
+offset_right = -32.0
+offset_bottom = 116.0
+grow_horizontal = 0
+theme = ExtResource("4_sweqy")
+text = "Restart"
+
+[node name="Menu" type="Button" parent="FeetCam/UI" unique_id=1909263977]
+layout_mode = 1
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 301.0
+offset_bottom = 116.0
+theme = ExtResource("4_sweqy")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2hs0m")
+text = "Menu"
 
 [node name="Body" type="RigidBody2D" parent="." unique_id=1501689367]
 mass = 5.0
@@ -98,4 +144,6 @@ remote_path = NodePath("../../FeetCam")
 update_rotation = false
 update_scale = false
 
+[connection signal="pressed" from="FeetCam/UI/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="FeetCam/UI/Menu" to="." method="_on_menu_pressed"]
 [connection signal="body_entered" from="Body/HeadHurt" to="." method="_on_head_hurt_body_entered"]

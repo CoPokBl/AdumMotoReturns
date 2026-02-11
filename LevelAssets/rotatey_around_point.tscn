@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cxm1o4mvta6qf"]
+
+[ext_resource type="Script" uid="uid://g2q3clmqps26" path="res://LevelAssets/rotatey_around_point.gd" id="1_yxd4o"]
+[ext_resource type="Texture2D" uid="uid://dxd3yyn7or1a4" path="res://Assets/adum.png" id="2_ai2xo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6f6w"]
+size = Vector2(148, 140)
+
+[node name="RotateAroundPoint" type="AnimatableBody2D" unique_id=788727901]
+script = ExtResource("1_yxd4o")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=288961708]
+texture = ExtResource("2_ai2xo")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1492412103]
+shape = SubResource("RectangleShape2D_m6f6w")
+metadata/_edit_group_ = true
