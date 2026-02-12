@@ -29,6 +29,24 @@ func _ready() -> void:
 	
 	_sound_player = AudioStreamPlayer.new()
 	add_child(_sound_player)
+	
+	# process flags
+	var level_to_load: int = -1
+	
+	var i: int = 0
+	var flags: PackedStringArray = OS.get_cmdline_args()
+	while i < len(flags):
+		var flag: String = flags[i]
+		
+		match flag:
+			"--level":
+				level_to_load = int(flags[i+1])
+				i += 1
+		
+		i += 1
+	
+	if level_to_load != -1:
+		load_level(level_to_load)
 
 
 func list_files_in_directory(path):

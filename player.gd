@@ -1,22 +1,54 @@
 class_name Player extends Node2D
 
+enum ControlMode {
+	NORMAL,
+	WHEEL
+}
+
 const SPEED: float = 5000
-const TILT_SPEED: float = 700_000
+const TILT_SPEED: float = 500_000
 const ZOOM: float = 0.65
 
 @onready var body: RigidBody2D = $Body
-@onready var camera: Camera2D = $FeetCam
-@onready var dead_colour: ColorRect = $FeetCam/UI/DeadColour
+@onready var camera: Camera2D = $Cam
+@onready var dead_colour: ColorRect = $Cam/UI/DeadColour
 @onready var hat: Sprite2D = $Body/Hat
 
+# control type packs
+@onready var normal_mode_pack: Node2D = $Body/Normal
+@onready var wheel_mode_pack: Node2D = $Body/Wheel
+
+# per level settings
+@export var helmet_uses: int = 0
+@export var control_mode: ControlMode = ControlMode.NORMAL
+
 var dead: bool = false
-var helmet_uses: int = 0
 
 
 func _ready() -> void:
 	%LevelName.text = "Level " + str(Utils.get_current_level().number)
 	%CloudParallax.autoscroll.x = randfn(-10, 15)
 	visible = true
+	
+	var packs: Array[Node2D] = [
+		normal_mode_pack,
+		wheel_mode_pack
+	]
+	
+	var active_pack: Node2D
+	match control_mode:
+		ControlMode.NORMAL:
+			active_pack = normal_mode_pack
+			body.physics_material_override.friction = 0.3
+		ControlMode.WHEEL:
+			active_pack = wheel_mode_pack
+			body.physics_material_override.friction = 1
+	
+	for child: Node in active_pack.get_children():
+		child.reparent(body)
+	
+	for pack: Node2D in packs:
+		pack.queue_free()
 
 
 func _process(_delta: float) -> void:
@@ -32,11 +64,12 @@ func _physics_process(_delta: float) -> void:
 	if helmet_uses == 0:
 		hat.visible = false
 	
-	if Input.is_action_pressed("forward"):
-		body.apply_central_force(Vector2(SPEED, 0))
-	
-	if Input.is_action_pressed("backward"):
-		body.apply_central_force(Vector2(-SPEED, 0))
+	if control_mode == ControlMode.NORMAL:
+		if Input.is_action_pressed("forward"):
+			body.apply_central_force(Vector2(SPEED, 0))
+		
+		if Input.is_action_pressed("backward"):
+			body.apply_central_force(Vector2(-SPEED, 0))
 	
 	if Input.is_action_pressed("tilt_left"):
 		body.apply_torque(-TILT_SPEED)
@@ -64,6 +97,9 @@ func _on_head_hurt_body_entered(ebody: Node2D) -> void:
 	if helmet_uses > 0:
 		helmet_uses -= 1;
 		return
+	
+	if control_mode == ControlMode.WHEEL:
+		return  # don't have head
 	
 	Utils.get_current_level().die()
 

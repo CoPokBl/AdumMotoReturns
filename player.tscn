@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dxd3yyn7or1a4" path="res://Assets/adum.png" id="2_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://chllreyymafqr" path="res://Assets/cloud.png" id="3_sweqy"]
 [ext_resource type="Theme" uid="uid://biakj4sw07nf" path="res://theme.tres" id="4_sweqy"]
+[ext_resource type="Texture2D" uid="uid://bnriwwyrbamdr" path="res://Assets/wheel.png" id="6_1jxqw"]
 [ext_resource type="Texture2D" uid="uid://drh3ncqiimpd1" path="res://Assets/HardHat.png" id="6_2hs0m"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_onrkg"]
@@ -31,8 +32,13 @@ friction = 0.3
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
 size = Vector2(148, 140)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_dw050"]
+radius = 61.008198
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(150, 17)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2hs0m"]
 
 [node name="Player" type="Node2D" unique_id=1001854450]
 script = ExtResource("1_onrkg")
@@ -57,10 +63,11 @@ offset_right = 6170.0
 offset_bottom = 399.0
 texture = ExtResource("3_sweqy")
 
-[node name="FeetCam" type="Camera2D" parent="." unique_id=531662432]
+[node name="Cam" type="Camera2D" parent="." unique_id=531662432]
 zoom = Vector2(0.65, 0.65)
 
-[node name="UI" type="Control" parent="FeetCam" unique_id=578552594]
+[node name="UI" type="Control" parent="Cam" unique_id=578552594]
+z_index = 1
 layout_mode = 3
 anchors_preset = 0
 offset_left = -1478.0
@@ -68,7 +75,7 @@ offset_top = -830.0
 offset_right = 1478.0
 offset_bottom = 833.0
 
-[node name="Sky" type="TextureRect" parent="FeetCam/UI" unique_id=589232948]
+[node name="Sky" type="TextureRect" parent="Cam/UI" unique_id=589232948]
 z_index = -10
 layout_mode = 1
 anchors_preset = 15
@@ -79,7 +86,7 @@ grow_vertical = 2
 scale = Vector2(1, 1.0800006)
 texture = ExtResource("2_hqtel")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="FeetCam/UI" unique_id=646121074]
+[node name="VBoxContainer" type="VBoxContainer" parent="Cam/UI" unique_id=646121074]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -89,24 +96,24 @@ offset_right = 259.5
 offset_bottom = 110.0
 grow_horizontal = 2
 
-[node name="Label" type="Label" parent="FeetCam/UI/VBoxContainer" unique_id=1257270816]
+[node name="Label" type="Label" parent="Cam/UI/VBoxContainer" unique_id=1257270816]
 layout_mode = 2
 
-[node name="LevelName" type="Label" parent="FeetCam/UI/VBoxContainer" unique_id=1006005452]
+[node name="LevelName" type="Label" parent="Cam/UI/VBoxContainer" unique_id=1006005452]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Level lmao something broke"
 label_settings = SubResource("LabelSettings_onrkg")
 horizontal_alignment = 1
 
-[node name="DeathsLabel" type="Label" parent="FeetCam/UI/VBoxContainer" unique_id=1631722335]
+[node name="DeathsLabel" type="Label" parent="Cam/UI/VBoxContainer" unique_id=1631722335]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Deaths:"
 label_settings = SubResource("LabelSettings_onrkg")
 horizontal_alignment = 1
 
-[node name="Restart" type="Button" parent="FeetCam/UI" unique_id=631448054]
+[node name="Restart" type="Button" parent="Cam/UI" unique_id=631448054]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -119,7 +126,7 @@ grow_horizontal = 0
 theme = ExtResource("4_sweqy")
 text = "Restart"
 
-[node name="Menu" type="Button" parent="FeetCam/UI" unique_id=1909263977]
+[node name="Menu" type="Button" parent="Cam/UI" unique_id=1909263977]
 layout_mode = 1
 offset_left = 32.0
 offset_top = 32.0
@@ -129,7 +136,7 @@ theme = ExtResource("4_sweqy")
 theme_override_styles/normal = SubResource("StyleBoxFlat_2hs0m")
 text = "Menu"
 
-[node name="DeadColour" type="ColorRect" parent="FeetCam/UI" unique_id=2120833506]
+[node name="DeadColour" type="ColorRect" parent="Cam/UI" unique_id=2120833506]
 modulate = Color(1, 1, 1, 0)
 z_index = 2
 layout_mode = 1
@@ -147,16 +154,28 @@ physics_material_override = SubResource("PhysicsMaterial_onrkg")
 can_sleep = false
 continuous_cd = 2
 
-[node name="Pic" type="Sprite2D" parent="Body" unique_id=394957607]
+[node name="Normal" type="Node2D" parent="Body" unique_id=157678096]
+
+[node name="Pic" type="Sprite2D" parent="Body/Normal" unique_id=394957607]
 texture = ExtResource("2_i3pqv")
+
+[node name="Shape" type="CollisionShape2D" parent="Body/Normal" unique_id=1720817179]
+shape = SubResource("RectangleShape2D_hqtel")
+
+[node name="Wheel" type="Node2D" parent="Body" unique_id=698778892]
+visible = false
+
+[node name="Pic" type="Sprite2D" parent="Body/Wheel" unique_id=185685140]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("6_1jxqw")
+
+[node name="Shape" type="CollisionShape2D" parent="Body/Wheel" unique_id=1486597946]
+shape = SubResource("CircleShape2D_dw050")
 
 [node name="Hat" type="Sprite2D" parent="Body" unique_id=653499310]
 visible = false
 position = Vector2(13, -68)
 texture = ExtResource("6_2hs0m")
-
-[node name="Shape" type="CollisionShape2D" parent="Body" unique_id=1720817179]
-shape = SubResource("RectangleShape2D_hqtel")
 
 [node name="HeadHurt" type="Area2D" parent="Body" unique_id=267441761]
 
@@ -165,10 +184,13 @@ position = Vector2(0, -62.5)
 shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Body" unique_id=1911634008]
-remote_path = NodePath("../../FeetCam")
+remote_path = NodePath("../../Cam")
 update_rotation = false
 update_scale = false
 
-[connection signal="pressed" from="FeetCam/UI/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="FeetCam/UI/Menu" to="." method="_on_menu_pressed"]
+[node name="StopWhining" type="CollisionShape2D" parent="Body" unique_id=721687375]
+shape = SubResource("CircleShape2D_2hs0m")
+
+[connection signal="pressed" from="Cam/UI/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Cam/UI/Menu" to="." method="_on_menu_pressed"]
 [connection signal="body_entered" from="Body/HeadHurt" to="." method="_on_head_hurt_body_entered"]
