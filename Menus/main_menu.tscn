@@ -24,10 +24,22 @@ border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
 border_color = Color(0.37254903, 0, 0, 1)
-corner_radius_top_left = 20
+corner_radius_top_left = 60
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
-corner_radius_bottom_left = 60
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxdly"]
+bg_color = Color(0.8343715, 0.4970916, 0.41088095, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.37254903, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 60
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jix8l"]
 bg_color = Color(0.8343715, 0.4970916, 0.41088095, 1)
@@ -138,6 +150,17 @@ theme_override_font_sizes/font_size = 31
 theme_override_styles/normal = SubResource("StyleBoxFlat_11gta")
 text = "Achievements"
 
+[node name="Options" type="Button" parent="." unique_id=244907946]
+layout_mode = 0
+offset_left = 974.0
+offset_top = 833.0
+offset_right = 1243.0
+offset_bottom = 917.0
+theme = ExtResource("4_jix8l")
+theme_override_font_sizes/font_size = 31
+theme_override_styles/normal = SubResource("StyleBoxFlat_cxdly")
+text = "Options"
+
 [node name="LevelSelect" type="Button" parent="." unique_id=1404523958]
 layout_mode = 0
 offset_left = 974.0
@@ -151,4 +174,5 @@ text = "Levels"
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Achievements" to="." method="_on_achievements_pressed"]
+[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="LevelSelect" to="." method="_on_level_select_pressed"]

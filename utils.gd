@@ -1,6 +1,6 @@
 extends Node
 
-const PLAYER_DATA_PATH: String = "user://save.cfg"
+const SAVE_PATH: String = "user://save.cfg"
 var MAX_LEVEL: int  # more like level count
 
 var click_sound: AudioStreamOggVorbis = preload("res://Assets/click.ogg")
@@ -10,7 +10,7 @@ var current_level: int = -1
 
 var _sound_player: AudioStreamPlayer
 var _loading_level: bool = false
-var _player_data: ConfigFile
+var _save: ConfigFile
 
 
 # yes this script plays the sound.
@@ -21,8 +21,12 @@ func _ready() -> void:
 		if file.ends_with(".tscn") && file.begins_with("level"):
 			MAX_LEVEL += 1
 	
-	_player_data = ConfigFile.new()
-	_player_data.load(PLAYER_DATA_PATH)
+	_save = ConfigFile.new()
+	_save.load(SAVE_PATH)
+	
+	for v_name: String in ["Master", "Music", "Sounds"]:
+		var idx: int = AudioServer.get_bus_index(v_name)
+		AudioServer.set_bus_volume_linear(idx, Utils.get_save("volume", v_name.to_lower(), AudioServer.get_bus_volume_linear(idx)))
 	
 	var sound: PackedScene = ResourceLoader.load("res://Prefabs/epicness.tscn")
 	add_child(sound.instantiate())
@@ -97,9 +101,9 @@ func change_scene(scene: String) -> void:
 
 
 func win() -> void:
-	_player_data.set_value("completed_levels", str(current_level), true)
-	_player_data.save(PLAYER_DATA_PATH)
-	if len(_player_data.get_section_keys("completed_levels")) >= MAX_LEVEL:
+	_save.set_value("completed_levels", str(current_level), true)
+	_save.save(SAVE_PATH)
+	if len(_save.get_section_keys("completed_levels")) >= MAX_LEVEL:
 		Achievements.grant("win")
 	
 	next_level()
@@ -114,7 +118,7 @@ func next_level() -> void:
 
 
 func is_level_completed(level: int) -> bool:
-	return _player_data.get_value("completed_levels", str(level), false)
+	return _save.get_value("completed_levels", str(level), false)
 
 
 # Play the next incomplete level
@@ -142,7 +146,17 @@ func button_click() -> void:
 	play_sfx(click_sound)
 
 
-func play_sfx(sfx: AudioStreamOggVorbis) -> void:
+func play_sfx(sfx: AudioStreamOggVorbis, bus: StringName = "Sounds") -> void:
 	_sound_player.stop()
+	_sound_player.bus = bus
 	_sound_player.stream = sfx
 	_sound_player.play()
+
+
+func set_save(section: String, key: String, value: Variant) -> void:
+	_save.set_value(section, key, value)
+	_save.save(SAVE_PATH)
+
+
+func get_save(section: String, key: String, default: Variant = null) -> Variant:
+	return _save.get_value(section, key, default)

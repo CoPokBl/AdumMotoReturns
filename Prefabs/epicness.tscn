@@ -5,3 +5,4 @@
 [node name="EPICNESS" type="AudioStreamPlayer" unique_id=623944344]
 stream = ExtResource("1_gcti1")
 autoplay = true
+bus = &"Music"

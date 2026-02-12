@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://tyw3l6wvqm2x"]
+
+[ext_resource type="Theme" uid="uid://biakj4sw07nf" path="res://theme.tres" id="1_4idlw"]
+[ext_resource type="Texture2D" uid="uid://dxd3yyn7or1a4" path="res://Assets/adum.png" id="1_mwbba"]
+[ext_resource type="Script" uid="uid://c8ab747dq4j6l" path="res://Menus/options_menu.gd" id="2_7gq10"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7gq10"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.17198601, 0.06528401, 0.06161195, 0.8666667)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_7gq10"]
+font_size = 27
+font_color = Color(0, 0, 0, 1)
+outline_size = 12
+outline_color = Color(0.8533018, 0.36928457, 0.14164355, 1)
+
+[node name="OptionsMenu" type="Control" unique_id=714469829]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_4idlw")
+script = ExtResource("2_7gq10")
+
+[node name="Background" type="TextureRect" parent="." unique_id=826248735]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_mwbba")
+stretch_mode = 1
+
+[node name="BackButton" type="Button" parent="." unique_id=1776248145]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -208.0
+offset_top = -100.0
+offset_right = -17.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Back"
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=774406830]
+layout_mode = 0
+offset_left = 518.0
+offset_top = 191.0
+offset_right = 1402.0
+offset_bottom = 834.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7gq10")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=246172732]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=254462960]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1819709215]
+layout_mode = 2
+text = "Master Volume"
+label_settings = SubResource("LabelSettings_7gq10")
+
+[node name="MasterVolume" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=33165557]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.0
+
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=2125639240]
+layout_mode = 2
+text = "Music Volume"
+label_settings = SubResource("LabelSettings_7gq10")
+
+[node name="MusicVolume" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1878328979]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.0
+
+[node name="Label3" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1775500725]
+layout_mode = 2
+text = "Sounds Volume"
+label_settings = SubResource("LabelSettings_7gq10")
+
+[node name="SoundsVolume" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1025962928]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.0
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_pressed"]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/MasterVolume" to="." method="_on_master_volume_value_changed"]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/MusicVolume" to="." method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/SoundsVolume" to="." method="_on_sound_volume_value_changed"]
