@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c7gnt6ltdtkqh"]
+
+[ext_resource type="Script" uid="uid://baanfc1krc00e" path="res://LevelAssets/helmet_item.gd" id="1_gwbrd"]
+[ext_resource type="Texture2D" uid="uid://drh3ncqiimpd1" path="res://Assets/HardHat.png" id="2_gwbrd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwbrd"]
+size = Vector2(224, 77)
+
+[node name="HelmetItem" type="Area2D" unique_id=1801170098]
+script = ExtResource("1_gwbrd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1134959684]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_gwbrd")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1094595551]
+texture = ExtResource("2_gwbrd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

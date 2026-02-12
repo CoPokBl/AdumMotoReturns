@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bdudpd0kiac66"]
+
+[ext_resource type="Texture2D" uid="uid://bulqp0r1tnyqi" path="res://Assets/adum_bouncy.png" id="1_wp1mh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6f6w"]
+size = Vector2(148, 140)
+
+[node name="Platform" type="StaticBody2D" unique_id=69979720]
+scale = Vector2(21.055994, 0.44)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=288961708]
+texture = ExtResource("1_wp1mh")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1492412103]
+shape = SubResource("RectangleShape2D_m6f6w")
+metadata/_edit_group_ = true

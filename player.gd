@@ -7,8 +7,10 @@ const ZOOM: float = 0.65
 @onready var body: RigidBody2D = $Body
 @onready var camera: Camera2D = $FeetCam
 @onready var dead_colour: ColorRect = $FeetCam/UI/DeadColour
+@onready var hat: Sprite2D = $Body/Hat
 
 var dead: bool = false
+var helmet_uses: int = 0
 
 
 func _ready() -> void:
@@ -26,6 +28,9 @@ func _physics_process(_delta: float) -> void:
 	
 	if dead:
 		return
+	
+	if helmet_uses == 0:
+		hat.visible = false
 	
 	if Input.is_action_pressed("forward"):
 		body.apply_central_force(Vector2(SPEED, 0))
@@ -54,6 +59,10 @@ func die() -> void:
 
 func _on_head_hurt_body_entered(ebody: Node2D) -> void:
 	if ebody.get_parent() is Player:
+		return
+	
+	if helmet_uses > 0:
+		helmet_uses -= 1;
 		return
 	
 	Utils.get_current_level().die()

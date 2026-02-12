@@ -10,5 +10,9 @@
 	"winwhiledead": {
 		"title": "Posthumous Victory",
 		"desc": "Win while being dead."
+	},
+	"imjustbetter": {
+		"title": "I'm Just Better.",
+		"desc": "Master the bounce."
 	}
 }
