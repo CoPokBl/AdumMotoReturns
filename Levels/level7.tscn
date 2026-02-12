@@ -24,7 +24,6 @@ bounce = 1.0
 
 [node name="Level" type="Node2D" unique_id=1046853199 node_paths=PackedStringArray("player")]
 script = ExtResource("1_yk7xu")
-number = 7
 void_death_level = 1000
 player = NodePath("Player")
 
@@ -196,5 +195,5 @@ scale = Vector2(1.9253477, 0.772966)
 physics_material_override = SubResource("PhysicsMaterial_17tg2")
 
 [node name="HelmetItem" parent="." unique_id=1801170098 instance=ExtResource("9_17tg2")]
-position = Vector2(3366, -728)
+position = Vector2(3371, -730)
 uses = 4

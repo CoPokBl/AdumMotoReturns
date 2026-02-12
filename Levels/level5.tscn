@@ -6,14 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://26tvrf5g2hp8" path="res://LevelAssets/win.tscn" id="4_4omtb"]
 [ext_resource type="PackedScene" uid="uid://raxkg36jlp8" path="res://LevelAssets/die.tscn" id="5_kdpyi"]
 [ext_resource type="PackedScene" uid="uid://nsxrky7ieabu" path="res://LevelAssets/translatey.tscn" id="6_h1e6x"]
-[ext_resource type="PackedScene" uid="uid://3eiufyfafmaf" path="res://Levels/gun.tscn" id="7_fj68v"]
+[ext_resource type="PackedScene" uid="uid://3eiufyfafmaf" path="res://LevelAssets/gun.tscn" id="7_fj68v"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nanxr"]
 font_size = 31
 
 [node name="Level" type="Node2D" unique_id=1046853199 node_paths=PackedStringArray("player")]
 script = ExtResource("1_b3501")
-number = 5
 void_death_level = 1000
 player = NodePath("Player")
 

@@ -2,6 +2,8 @@ class_name AchievementBox extends Control
 
 @onready var display: Control = $Display
 
+var dont_move: bool = false
+
 
 func load_data(data: Dictionary) -> void:
 	%Title.text = data["title"]
@@ -9,6 +11,9 @@ func load_data(data: Dictionary) -> void:
 
 
 func _ready() -> void:
+	if dont_move:
+		return
+	
 	var initial_pos: Vector2 = display.position
 	display.position = Vector2(display.position.x + 800, display.position.y)
 	var tween: Tween = create_tween()
@@ -22,6 +27,9 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	if dont_move:
+		return
+	
 	var level: Level = Utils.get_current_level()
 	if level == null:
 		global_position = Vector2(960, 540)

@@ -31,6 +31,24 @@ func grant(ach: String) -> void:
 	# will delete itself
 
 
+func get_granted_achievements() -> PackedStringArray:
+	if !_player_data.has_section("unlocked"):
+		return [];
+	return _player_data.get_section_keys("unlocked")
+
+
+func get_achievement_info(ach: String) -> Dictionary:
+	return _data[ach]
+
+
+func get_granted_achievements_info() -> Dictionary:
+	var granted: PackedStringArray = get_granted_achievements()
+	var dat: Dictionary = {}
+	for ach: String in granted:
+		dat[ach] = get_achievement_info(ach)
+	return dat
+
+
 func load_text_file(path):
 	var f = FileAccess.open(path, FileAccess.READ)
 	var text = f.get_as_text()
