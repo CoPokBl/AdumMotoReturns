@@ -25,7 +25,8 @@ func _ready() -> void:
 
 
 func register_tweens() -> void:
-	_tween = create_tween().set_loops().set_ease(ease_type).set_trans(trans)
+	_tween = create_tween().set_loops().set_ease(ease_type).set_trans(trans) \
+			.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
 	_tween.tween_interval(stationary_time)
 	_tween.tween_property(self, "position", _end, time)
 	_tween.tween_interval(stationary_time)
