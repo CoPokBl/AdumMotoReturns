@@ -24,6 +24,58 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 60
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vj6dk"]
+bg_color = Color(0.8343715, 0.4970916, 0.41088095, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.37254903, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_left = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05tig"]
+bg_color = Color(0.5882353, 0.29803923, 0.22745098, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.37254903, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_left = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjfk0"]
+bg_color = Color(0.8343715, 0.4970916, 0.41088095, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.37254903, 0, 0, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 32
+expand_margin_left = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_110ce"]
+bg_color = Color(0.5869851, 0.29981497, 0.22745296, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.37254903, 0, 0, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 32
+expand_margin_left = 4.0
+
 [resource]
 Button/colors/font_color = Color(0, 0, 0, 1)
 Button/colors/font_outline_color = Color(0.73287386, 0.3390877, 0.13085389, 1)
@@ -31,3 +83,8 @@ Button/constants/outline_size = 7
 Button/font_sizes/font_size = 57
 Button/styles/hover = SubResource("StyleBoxFlat_wvktn")
 Button/styles/normal = SubResource("StyleBoxFlat_e1x85")
+CheckBox/font_sizes/font_size = 24
+CheckBox/styles/hover = SubResource("StyleBoxFlat_vj6dk")
+CheckBox/styles/hover_pressed = SubResource("StyleBoxFlat_05tig")
+CheckBox/styles/normal = SubResource("StyleBoxFlat_cjfk0")
+CheckBox/styles/pressed = SubResource("StyleBoxFlat_110ce")

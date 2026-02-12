@@ -28,3 +28,8 @@ func _on_sound_volume_value_changed(value: float) -> void:
 
 func _on_back_pressed() -> void:
 	get_tree().change_scene_to_file("res://Menus/main_menu.tscn")
+
+
+func _on_center_cursor_toggled(value: bool) -> void:
+	Utils.set_save("cursor", "center", value)
+	Utils.update_cursor()

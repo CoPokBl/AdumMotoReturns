@@ -34,6 +34,8 @@ func _ready() -> void:
 	_sound_player = AudioStreamPlayer.new()
 	add_child(_sound_player)
 	
+	update_cursor()
+	
 	# process flags
 	var level_to_load: int = -1
 	
@@ -51,6 +53,19 @@ func _ready() -> void:
 	
 	if level_to_load != -1:
 		load_level(level_to_load)
+
+
+func update_cursor():
+	var texture: Texture2D
+	var hotspot: Vector2
+	if get_save("cursor", "center", false):
+		texture = preload("res://Assets/center_ptr.png")
+		hotspot = Vector2(17, 2)
+	else:
+		texture = preload("res://Assets/left_ptr.png")
+		hotspot = Vector2(6, 6)
+	
+	DisplayServer.cursor_set_custom_image(texture, DisplayServer.CURSOR_ARROW, hotspot)
 
 
 func list_files_in_directory(path):
