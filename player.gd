@@ -9,6 +9,8 @@ const SPEED: float = 5000
 const TILT_SPEED: float = 500_000
 const ZOOM: float = 0.65
 
+signal first_move
+
 @onready var body: RigidBody2D = $Body
 @onready var camera: Camera2D = $Cam
 @onready var dead_colour: ColorRect = $Cam/UI/DeadColour
@@ -23,6 +25,7 @@ const ZOOM: float = 0.65
 @export var control_mode: ControlMode = ControlMode.NORMAL
 
 var dead: bool = false
+var has_moved: bool = false
 
 
 func _ready() -> void:
@@ -66,21 +69,33 @@ func _physics_process(_delta: float) -> void:
 	
 	if control_mode == ControlMode.NORMAL:
 		if Input.is_action_pressed("forward"):
+			_moved()
 			body.apply_central_force(Vector2(SPEED, 0))
 		
 		if Input.is_action_pressed("backward"):
+			_moved()
 			body.apply_central_force(Vector2(-SPEED, 0))
 	
 	if Input.is_action_pressed("tilt_left"):
+		_moved()
 		body.apply_torque(-TILT_SPEED)
 	
 	if Input.is_action_pressed("tilt_right"):
+		_moved()
 		body.apply_torque(TILT_SPEED)
 	
 	# Void death
 	# adum says it's important
 	if body.position.y > Utils.get_current_level().void_death_level:
 		Utils.get_current_level().die()
+
+
+func _moved() -> void:
+	if has_moved:
+		return
+	
+	has_moved = true
+	first_move.emit()
 
 
 # Perform death animation
