@@ -166,6 +166,7 @@ shape = SubResource("RectangleShape2D_hqtel")
 visible = false
 
 [node name="Pic" type="Sprite2D" parent="Body/Wheel" unique_id=185685140]
+z_index = 1
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("6_1jxqw")
 
@@ -174,6 +175,7 @@ shape = SubResource("CircleShape2D_dw050")
 
 [node name="Hat" type="Sprite2D" parent="Body" unique_id=653499310]
 visible = false
+z_index = 1
 position = Vector2(13, -68)
 texture = ExtResource("6_2hs0m")
 
