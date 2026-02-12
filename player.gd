@@ -6,6 +6,9 @@ const ZOOM: float = 0.65
 
 @onready var body: RigidBody2D = $Body
 @onready var camera: Camera2D = $FeetCam
+@onready var dead_colour: ColorRect = $FeetCam/UI/DeadColour
+
+var dead: bool = false
 
 
 func _ready() -> void:
@@ -15,11 +18,14 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	%CloudParallax.position.y = position.y
+	%CloudParallax/Cloud.position.y = body.position.y
 
 
 func _physics_process(_delta: float) -> void:
 	%DeathsLabel.text = "Deaths: " + str(Utils.deaths)
+	
+	if dead:
+		return
 	
 	if Input.is_action_pressed("forward"):
 		body.apply_central_force(Vector2(SPEED, 0))
@@ -39,6 +45,13 @@ func _physics_process(_delta: float) -> void:
 		Utils.get_current_level().die()
 
 
+# Perform death animation
+func die() -> void:
+	var tween: Tween = create_tween()
+	tween.tween_property(dead_colour, "modulate", Color.WHITE, Level.DEATH_TIME)
+	dead = true
+
+
 func _on_head_hurt_body_entered(ebody: Node2D) -> void:
 	if ebody.get_parent() is Player:
 		return
@@ -51,4 +64,4 @@ func _on_menu_pressed() -> void:
 
 
 func _on_restart_pressed() -> void:
-	Utils.get_current_level().die()
+	Utils.get_current_level().die(true)

@@ -27,4 +27,5 @@ func _process(_delta: float) -> void:
 		global_position = Vector2(960, 540)
 		return
 	
+	scale = Vector2.ONE/Utils.get_current_level().player.camera.zoom
 	global_position = level.player.camera.global_position

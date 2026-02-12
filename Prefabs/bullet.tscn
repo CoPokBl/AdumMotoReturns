@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://df4rhleufjlk6"]
+
+[ext_resource type="Texture2D" uid="uid://cr63p67n6fumc" path="res://Assets/bullet.png" id="1_0oen4"]
+[ext_resource type="Script" uid="uid://drtklfchyh4dc" path="res://Prefabs/bullet.gd" id="1_m4f65"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m4f65"]
+radius = 15.0
+
+[node name="Bullet" type="RigidBody2D" unique_id=715046929]
+contact_monitor = true
+max_contacts_reported = 4
+script = ExtResource("1_m4f65")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=186465458]
+position = Vector2(2, -5)
+scale = Vector2(0.395, 0.395)
+texture = ExtResource("1_0oen4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=377966986]
+position = Vector2(1, -4)
+shape = SubResource("CircleShape2D_m4f65")
+
+[node name="DespawnTimer" type="Timer" parent="." unique_id=1633952859]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

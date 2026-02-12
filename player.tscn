@@ -42,11 +42,18 @@ scroll_scale = Vector2(0.1, 1)
 repeat_size = Vector2(7680, 0)
 autoscroll = Vector2(-10, 0)
 
-[node name="Cloud" type="TextureRect" parent="CloudParallax" unique_id=1092856670]
+[node name="Cloud" type="Control" parent="CloudParallax" unique_id=271493044]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Cloud" type="TextureRect" parent="CloudParallax/Cloud" unique_id=1092856670]
+layout_mode = 0
 offset_left = -1510.0
-offset_top = -550.0
+offset_top = -681.0
 offset_right = 6170.0
-offset_bottom = 530.0
+offset_bottom = 399.0
 texture = ExtResource("3_sweqy")
 
 [node name="FeetCam" type="Camera2D" parent="." unique_id=531662432]
@@ -120,6 +127,18 @@ offset_bottom = 116.0
 theme = ExtResource("4_sweqy")
 theme_override_styles/normal = SubResource("StyleBoxFlat_2hs0m")
 text = "Menu"
+
+[node name="DeadColour" type="ColorRect" parent="FeetCam/UI" unique_id=2120833506]
+modulate = Color(1, 1, 1, 0)
+z_index = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.87734634, 3.8745256e-06, 1.2513996e-06, 1)
 
 [node name="Body" type="RigidBody2D" parent="." unique_id=1501689367]
 mass = 5.0

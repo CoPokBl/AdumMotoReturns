@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://3eiufyfafmaf"]
+
+[ext_resource type="Script" uid="uid://bp1o4x1k88jkt" path="res://LevelAssets/gun.gd" id="1_wlg7s"]
+[ext_resource type="Texture2D" uid="uid://b3k6j77umb1tc" path="res://Assets/pewpew.png" id="2_lipo2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ggu74"]
+size = Vector2(284, 134)
+
+[node name="Gun" type="StaticBody2D" unique_id=1383853497]
+script = ExtResource("1_wlg7s")
+shoot_time = 5.0
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=110875952]
+scale = Vector2(1.935, 1.935)
+texture = ExtResource("2_lipo2")
+
+[node name="Shape" type="CollisionShape2D" parent="." unique_id=489199200]
+position = Vector2(-6, 36)
+shape = SubResource("RectangleShape2D_ggu74")
+
+[node name="Timer" type="Timer" parent="." unique_id=848102640]

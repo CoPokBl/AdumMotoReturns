@@ -6,5 +6,9 @@
 	"win": {
 		"title": "That's It!",
 		"desc": "Congratulations on beating the game."
+	},
+	"winwhiledead": {
+		"title": "Posthumous Victory",
+		"desc": "Win while being dead."
 	}
 }
