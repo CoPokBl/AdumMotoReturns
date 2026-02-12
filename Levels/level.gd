@@ -12,9 +12,16 @@ var number:
 
 
 func win():
+	if not _win():
+		return
+	
 	if dead:
 		Achievements.grant("winwhiledead")
 	Utils.win()
+
+
+func _win():
+	return true
 
 
 func die(skip_animation: bool = false):

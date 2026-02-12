@@ -94,12 +94,12 @@ func _on_head_hurt_body_entered(ebody: Node2D) -> void:
 	if ebody.get_parent() is Player:
 		return
 	
+	if control_mode == ControlMode.WHEEL:
+		return  # don't have head
+	
 	if helmet_uses > 0:
 		helmet_uses -= 1;
 		return
-	
-	if control_mode == ControlMode.WHEEL:
-		return  # don't have head
 	
 	Utils.get_current_level().die()
 

@@ -18,5 +18,9 @@
 	"wheel": {
 		"title": "Wheel Mode Engaged",
 		"desc": "I hope you're having a wheely good time."
+	},
+	"hardhatwheel": {
+		"title": "Safety First",
+		"desc": "How did you go through that floor?"
 	}
 }
