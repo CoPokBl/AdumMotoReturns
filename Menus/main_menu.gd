@@ -1,5 +1,11 @@
 extends Control
 
+@onready var completion_label: Label = $Completion
+
+
+func _ready() -> void:
+	completion_label.text = "Game Completion: " + str(round(Utils.calc_game_completion()*100)) + "%"
+
 
 func _on_play_pressed() -> void:
 	Utils.continue_levels()

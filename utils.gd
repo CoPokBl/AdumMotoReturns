@@ -127,6 +127,17 @@ func continue_levels() -> void:
 	load_level(1)
 
 
+func calc_game_completion() -> float:
+	var completed_levels: int = 0
+	for i in range(1, MAX_LEVEL):
+		if is_level_completed(i):
+			completed_levels += 1
+	
+	var levels_frac: float = float(completed_levels)/MAX_LEVEL
+	var achievements_frac: float = float(len(Achievements.get_granted_achievements()))/len(Achievements._data)
+	return (levels_frac + achievements_frac) / 2
+
+
 func button_click() -> void:
 	play_sfx(click_sound)
 

@@ -11,6 +11,12 @@ font_color = Color(0, 0, 0, 1)
 outline_size = 28
 outline_color = Color(0.8533018, 0.36928457, 0.14164355, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_11gta"]
+font_size = 37
+font_color = Color(0, 0, 0, 1)
+outline_size = 18
+outline_color = Color(0.8533018, 0.36928457, 0.14164355, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_11gta"]
 bg_color = Color(0.8343715, 0.4970916, 0.41088095, 1)
 border_width_left = 3
@@ -84,6 +90,23 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "ADUM MOTO RETURNS"
 label_settings = SubResource("LabelSettings_fu7sn")
+horizontal_alignment = 1
+
+[node name="Completion" type="Label" parent="." unique_id=1324835251]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -341.0
+offset_top = 202.0
+offset_right = 403.0
+offset_bottom = 281.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game Completion: 10.5%"
+label_settings = SubResource("LabelSettings_11gta")
 horizontal_alignment = 1
 
 [node name="Play" type="Button" parent="." unique_id=109784]

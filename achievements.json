@@ -14,5 +14,9 @@
 	"imjustbetter": {
 		"title": "I'm Just Better.",
 		"desc": "Master the bounce."
+	},
+	"wheel": {
+		"title": "Wheel Mode Engaged",
+		"desc": "I hope you're having a wheely good time."
 	}
 }
