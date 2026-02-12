@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://o71usn0jv4kg"]
+
+[ext_resource type="Script" uid="uid://cyg08ov6caeox" path="res://Levels/level.gd" id="1_78pqp"]
+[ext_resource type="PackedScene" uid="uid://bpfivjsbt6mq7" path="res://player.tscn" id="2_st4o3"]
+[ext_resource type="PackedScene" uid="uid://nsxrky7ieabu" path="res://LevelAssets/translatey.tscn" id="3_p42bc"]
+[ext_resource type="PackedScene" uid="uid://raxkg36jlp8" path="res://LevelAssets/die.tscn" id="5_gwihv"]
+[ext_resource type="PackedScene" uid="uid://dvxcgrj50lify" path="res://LevelAssets/platform.tscn" id="5_tl2rl"]
+[ext_resource type="PackedScene" uid="uid://26tvrf5g2hp8" path="res://LevelAssets/win.tscn" id="7_rhlak"]
+[ext_resource type="PackedScene" path="res://LevelAssets/cold_platform.tscn" id="9_1jxvy"]
+[ext_resource type="PackedScene" path="res://LevelAssets/helmet_item.tscn" id="10_cf0gi"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_er2uw"]
+friction = 100.0
+rough = true
+bounce = 100.0
+absorbent = true
+
+[node name="Level" type="Node2D" unique_id=1046853199 node_paths=PackedStringArray("player")]
+script = ExtResource("1_78pqp")
+void_death_level = 10000
+player = NodePath("Player")
+
+[node name="Player" parent="." unique_id=1501689367 instance=ExtResource("2_st4o3")]
+visible = false
+position = Vector2(-59, -135)
+
+[node name="Win" parent="." unique_id=886161782 instance=ExtResource("7_rhlak")]
+position = Vector2(9881, 5861)
+
+[node name="Platform" parent="." unique_id=69979720 instance=ExtResource("9_1jxvy")]
+position = Vector2(2343, 1635)
+rotation = 0.5723188
+scale = Vector2(45.54937, 0.44)
+
+[node name="Loop" type="Node2D" parent="." unique_id=1862249131]
+position = Vector2(5462, 3463)
+
+[node name="Platform2" parent="Loop" unique_id=1176353948 instance=ExtResource("9_1jxvy")]
+position = Vector2(-56.000008, 16.000122)
+rotation = 0.1057619
+scale = Vector2(3.3448317, 0.43999997)
+
+[node name="Platform3" parent="Loop" unique_id=1712375609 instance=ExtResource("9_1jxvy")]
+position = Vector2(341, -6.999878)
+rotation = -0.25030217
+scale = Vector2(3.3448312, 0.44)
+
+[node name="Die" parent="." unique_id=1759583263 instance=ExtResource("5_gwihv")]
+position = Vector2(6742.0005, 3244)
+scale = Vector2(1.0399902, 0.39999998)
+
+[node name="Die2" parent="." unique_id=726804583 instance=ExtResource("5_gwihv")]
+position = Vector2(6154, 3766.9998)
+rotation = 1.0761974
+scale = Vector2(1.0399902, 0.39999998)
+
+[node name="Die3" parent="." unique_id=1138996658 instance=ExtResource("5_gwihv")]
+position = Vector2(6590.0005, 3588.9998)
+rotation = 1.0450587
+scale = Vector2(1.0399902, 0.39999998)
+
+[node name="Translate" parent="." unique_id=788727901 instance=ExtResource("3_p42bc")]
+position = Vector2(6871.715, 5017)
+scale = Vector2(1.88, 0.48000002)
+physics_material_override = SubResource("PhysicsMaterial_er2uw")
+time = 0.9
+direction = Vector2(2700, 0)
+stationary_time = 11.6
+
+[node name="HelmetItem" parent="." unique_id=1801170098 instance=ExtResource("10_cf0gi")]
+position = Vector2(6878, 4891)
+uses = 1
+
+[node name="Final" type="Node2D" parent="." unique_id=280107319]
+position = Vector2(9516, 5017)
+
+[node name="Platform2" parent="." unique_id=1283322874 instance=ExtResource("5_tl2rl")]
+position = Vector2(10119, 4421)
+rotation = 1.5707964
+scale = Vector2(10.736, 0.44)
+
+[node name="Platform3" parent="." unique_id=906287525 instance=ExtResource("5_tl2rl")]
+position = Vector2(10008.001, 5017)
+scale = Vector2(1.0960233, 0.44)
+
+[node name="Translate2" parent="." unique_id=1691214697 instance=ExtResource("3_p42bc")]
+position = Vector2(10566, 3565)
+scale = Vector2(1.88, 0.48000002)
+physics_material_override = SubResource("PhysicsMaterial_er2uw")
+time = 5.0
+direction = Vector2(-342, 0)
+stationary_time = 14.6
