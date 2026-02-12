@@ -2,7 +2,7 @@ extends Control
 
 
 func _on_play_pressed() -> void:
-	Utils.load_level(1)
+	Utils.continue_levels()
 
 
 func _on_level_select_pressed() -> void:

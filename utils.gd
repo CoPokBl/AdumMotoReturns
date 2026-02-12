@@ -1,5 +1,6 @@
 extends Node
 
+const PLAYER_DATA_PATH: String = "user://save.cfg"
 var MAX_LEVEL: int  # more like level count
 
 var click_sound: AudioStreamOggVorbis = preload("res://Assets/click.ogg")
@@ -9,6 +10,7 @@ var current_level: int = -1
 
 var _sound_player: AudioStreamPlayer
 var _loading_level: bool = false
+var _player_data: ConfigFile
 
 
 # yes this script plays the sound.
@@ -18,6 +20,9 @@ func _ready() -> void:
 	for file: String in filesinlevels:
 		if file.ends_with(".tscn") && file.begins_with("level"):
 			MAX_LEVEL += 1
+	
+	_player_data = ConfigFile.new()
+	_player_data.load(PLAYER_DATA_PATH)
 	
 	var sound: PackedScene = ResourceLoader.load("res://Prefabs/epicness.tscn")
 	add_child(sound.instantiate())
@@ -35,11 +40,10 @@ func list_files_in_directory(path):
 		var file: String = dir.get_next()
 		if file == "":
 			break
-		elif not file.begins_with("."):
+		elif !file.begins_with("."):
 			files.append(file)
 
 	dir.list_dir_end()
-
 	return files
 
 
@@ -55,7 +59,6 @@ func get_current_level() -> Level:
 	return null
 
 
-# Perfectly good function with no jank
 func load_level(num: int) -> bool:
 	if num > MAX_LEVEL:
 		return false
@@ -75,13 +78,35 @@ func change_scene(scene: String) -> void:
 	get_tree().change_scene_to_file(scene)
 
 
+func win() -> void:
+	_player_data.set_value("completed_levels", str(current_level), true)
+	_player_data.save(PLAYER_DATA_PATH)
+	if len(_player_data.get_section_keys("completed_levels")) >= MAX_LEVEL:
+		Achievements.grant("win")
+	
+	next_level()
+
+
 func next_level() -> void:
 	var current: int = current_level
 	var possible: bool = load_level(current + 1)
 	if !possible:
 		# Win
-		Achievements.grant("win")
 		change_scene.call_deferred("res://Menus/main_menu.tscn")
+
+
+func is_level_completed(level: int) -> bool:
+	return _player_data.get_value("completed_levels", str(level), false)
+
+
+# Play the next incomplete level
+# or the first level.
+func continue_levels() -> void:
+	for i in range(1, MAX_LEVEL):
+		if !is_level_completed(i):
+			load_level(i)
+	
+	load_level(1)
 
 
 func button_click() -> void:

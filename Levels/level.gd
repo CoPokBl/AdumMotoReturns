@@ -14,7 +14,7 @@ var number:
 func win():
 	if dead:
 		Achievements.grant("winwhiledead")
-	Utils.next_level()
+	Utils.win()
 
 
 func die(skip_animation: bool = false):
