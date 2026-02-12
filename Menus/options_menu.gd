@@ -3,12 +3,16 @@ extends Control
 @onready var master_volume = %MasterVolume
 @onready var music_volume = %MusicVolume
 @onready var sounds_volume = %SoundsVolume
+@onready var center_cursor: CheckBox = %CenterCursor
+@onready var fullscreen: CheckBox = %Fullscreen
 
 
 func _ready() -> void:
 	master_volume.value = AudioServer.get_bus_volume_linear(AudioServer.get_bus_index("Master"))
 	music_volume.value = AudioServer.get_bus_volume_linear(AudioServer.get_bus_index("Music"))
 	sounds_volume.value = AudioServer.get_bus_volume_linear(AudioServer.get_bus_index("Sounds"))
+	center_cursor.button_pressed = Utils.get_save("cursor", "center", false)
+	fullscreen.button_pressed = Utils.get_save("window", "fullscreen", false)
 
 
 func _on_master_volume_value_changed(value: float) -> void:
@@ -33,3 +37,8 @@ func _on_back_pressed() -> void:
 func _on_center_cursor_toggled(value: bool) -> void:
 	Utils.set_save("cursor", "center", value)
 	Utils.update_cursor()
+
+
+func _on_fullscreen_toggled(value: bool) -> void:
+	Utils.set_save("window", "fullscreen", value)
+	get_window().mode = Window.MODE_FULLSCREEN if value else Window.MODE_WINDOWED

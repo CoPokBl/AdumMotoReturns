@@ -35,6 +35,7 @@ func _ready() -> void:
 	add_child(_sound_player)
 	
 	update_cursor()
+	get_window().mode = Window.MODE_FULLSCREEN if get_save("window", "fullscreen", false) else Window.MODE_WINDOWED
 	
 	# process flags
 	var level_to_load: int = -1
