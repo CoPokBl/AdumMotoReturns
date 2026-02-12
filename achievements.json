@@ -22,5 +22,9 @@
 	"hardhatwheel": {
 		"title": "Safety First",
 		"desc": "How did you go through that floor?"
+	},
+	"inputinauto": {
+		"title": "Unnecessary",
+		"desc": "You didn't need to do anything. But you still did."
 	}
 }

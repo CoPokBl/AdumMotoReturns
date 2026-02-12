@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://o71usn0jv4kg"]
 
-[ext_resource type="Script" uid="uid://cyg08ov6caeox" path="res://Levels/level.gd" id="1_78pqp"]
+[ext_resource type="Script" uid="uid://do0dy7b8c0185" path="res://Levels/level_12.gd" id="1_er2uw"]
 [ext_resource type="PackedScene" uid="uid://bpfivjsbt6mq7" path="res://player.tscn" id="2_st4o3"]
 [ext_resource type="PackedScene" uid="uid://nsxrky7ieabu" path="res://LevelAssets/translatey.tscn" id="3_p42bc"]
 [ext_resource type="PackedScene" uid="uid://raxkg36jlp8" path="res://LevelAssets/die.tscn" id="5_gwihv"]
 [ext_resource type="PackedScene" uid="uid://dvxcgrj50lify" path="res://LevelAssets/platform.tscn" id="5_tl2rl"]
 [ext_resource type="PackedScene" uid="uid://26tvrf5g2hp8" path="res://LevelAssets/win.tscn" id="7_rhlak"]
-[ext_resource type="PackedScene" uid="uid://cheqswjjieigu" path="res://LevelAssets/cold_platform.tscn" id="9_1jxvy"]
-[ext_resource type="PackedScene" uid="uid://c7gnt6ltdtkqh" path="res://LevelAssets/helmet_item.tscn" id="10_cf0gi"]
+[ext_resource type="PackedScene" path="res://LevelAssets/cold_platform.tscn" id="9_1jxvy"]
+[ext_resource type="PackedScene" path="res://LevelAssets/helmet_item.tscn" id="10_cf0gi"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_er2uw"]
 friction = 100.0
@@ -16,7 +16,7 @@ bounce = 100.0
 absorbent = true
 
 [node name="Level" type="Node2D" unique_id=1046853199 node_paths=PackedStringArray("player")]
-script = ExtResource("1_78pqp")
+script = ExtResource("1_er2uw")
 void_death_level = 10000
 player = NodePath("Player")
 
@@ -60,7 +60,7 @@ rotation = 1.0450587
 scale = Vector2(1.0399902, 0.39999998)
 
 [node name="Translate" parent="." unique_id=788727901 instance=ExtResource("3_p42bc")]
-position = Vector2(6871.715, 5017)
+position = Vector2(6868.715, 5017)
 scale = Vector2(1.88, 0.48000002)
 physics_material_override = SubResource("PhysicsMaterial_er2uw")
 time = 0.9
