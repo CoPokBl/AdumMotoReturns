@@ -129,7 +129,7 @@ func continue_levels() -> void:
 
 func calc_game_completion() -> float:
 	var completed_levels: int = 0
-	for i in range(1, MAX_LEVEL):
+	for i in range(1, MAX_LEVEL+1):
 		if is_level_completed(i):
 			completed_levels += 1
 	
