@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://c53cetx0rkjy8"]
+
+[ext_resource type="Script" uid="uid://cyg08ov6caeox" path="res://Levels/level.gd" id="1_lhgom"]
+[ext_resource type="PackedScene" uid="uid://bpfivjsbt6mq7" path="res://player.tscn" id="2_bukux"]
+[ext_resource type="PackedScene" uid="uid://dvxcgrj50lify" path="res://LevelAssets/platform.tscn" id="3_q170s"]
+[ext_resource type="Texture2D" uid="uid://dxd3yyn7or1a4" path="res://Assets/adum.png" id="4_bukux"]
+[ext_resource type="PackedScene" uid="uid://26tvrf5g2hp8" path="res://LevelAssets/win.tscn" id="4_x0r0x"]
+[ext_resource type="PackedScene" uid="uid://nsxrky7ieabu" path="res://LevelAssets/translatey.tscn" id="5_c25he"]
+[ext_resource type="PackedScene" uid="uid://cheqswjjieigu" path="res://LevelAssets/cold_platform.tscn" id="6_7tjyj"]
+[ext_resource type="PackedScene" uid="uid://g4v7emf5ayub" path="res://LevelAssets/Spinny.tscn" id="6_hi0ta"]
+[ext_resource type="PackedScene" uid="uid://csrmold102x66" path="res://LevelAssets/speed_bump.tscn" id="7_mw4w7"]
+[ext_resource type="PackedScene" uid="uid://c7gnt6ltdtkqh" path="res://LevelAssets/helmet_item.tscn" id="8_rrg0x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6f6w"]
+size = Vector2(148, 140)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bukux"]
+font_size = 69
+
+[node name="Level" type="Node2D" unique_id=1046853199 node_paths=PackedStringArray("player")]
+script = ExtResource("1_lhgom")
+void_death_level = 1000
+player = NodePath("Player")
+
+[node name="Player" parent="." unique_id=1501689367 instance=ExtResource("2_bukux")]
+visible = false
+position = Vector2(-59, -135)
+
+[node name="Killer" parent="." unique_id=788727901 instance=ExtResource("5_c25he")]
+position = Vector2(-1704, -384.525)
+scale = Vector2(1, 5.1199994)
+time = 20.0
+direction = Vector2(21300, 0)
+wait_for_player = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="Killer" unique_id=288961708]
+position = Vector2(64, 72.656265)
+scale = Vector2(1.8959861, 0.039062567)
+texture = ExtResource("4_bukux")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Killer" unique_id=1492412103]
+position = Vector2(64, 72.656265)
+scale = Vector2(1.8959861, 0.039062567)
+shape = SubResource("RectangleShape2D_m6f6w")
+metadata/_edit_group_ = true
+
+[node name="Platform" parent="." unique_id=69979720 instance=ExtResource("3_q170s")]
+position = Vector2(-479.99997, 0)
+scale = Vector2(16.135988, 0.44)
+
+[node name="Platform2" parent="." unique_id=1857305184 instance=ExtResource("3_q170s")]
+position = Vector2(999, -96)
+rotation = -0.30159816
+scale = Vector2(4.3207016, 0.44)
+
+[node name="Platform3" parent="." unique_id=98345918 instance=ExtResource("3_q170s")]
+position = Vector2(3940, 0)
+scale = Vector2(24.095991, 0.44)
+
+[node name="Platform4" parent="." unique_id=253301323 instance=ExtResource("3_q170s")]
+position = Vector2(7492, 0)
+scale = Vector2(24.095991, 0.44)
+
+[node name="Platform5" parent="." unique_id=1588127713 instance=ExtResource("3_q170s")]
+position = Vector2(9914, 0)
+scale = Vector2(8.775991, 0.44)
+
+[node name="Bump" parent="." unique_id=1865977958 instance=ExtResource("3_q170s")]
+position = Vector2(10105.001, -29.000002)
+scale = Vector2(0.85599136, 0.3600001)
+
+[node name="Spinny" parent="." unique_id=508629565 instance=ExtResource("6_hi0ta")]
+position = Vector2(3817.0002, -1064)
+rotation = 1.5707964
+scale = Vector2(14.92, 0.44000024)
+speed = 200.0
+spin_left = true
+
+[node name="Win" parent="." unique_id=886161782 instance=ExtResource("4_x0r0x")]
+position = Vector2(19590, -213)
+
+[node name="SpeedBump" parent="." unique_id=619220325 instance=ExtResource("7_mw4w7")]
+position = Vector2(5960, -178)
+
+[node name="SpeedBump2" parent="." unique_id=447578942 instance=ExtResource("7_mw4w7")]
+position = Vector2(6965, -178)
+
+[node name="Platform7" parent="." unique_id=1828629105 instance=ExtResource("6_7tjyj")]
+position = Vector2(11093, 2)
+scale = Vector2(7.175995, 0.44)
+
+[node name="Platform8" parent="." unique_id=1347201519 instance=ExtResource("6_7tjyj")]
+position = Vector2(11761.999, -77)
+rotation = -0.46731165
+scale = Vector2(2.488974, 0.44)
+
+[node name="Platform6" parent="." unique_id=1598616662 instance=ExtResource("3_q170s")]
+position = Vector2(14199.001, 0)
+scale = Vector2(8.775991, 0.44)
+
+[node name="BusStop" type="Label" parent="." unique_id=341609950]
+offset_left = 13953.0
+offset_top = -340.0
+offset_right = 14465.0
+offset_bottom = -147.0
+text = "The bus will be 
+here shortly"
+label_settings = SubResource("LabelSettings_bukux")
+
+[node name="HelmetItem" parent="." unique_id=1801170098 instance=ExtResource("8_rrg0x")]
+position = Vector2(14647, -182)
+uses = 999
