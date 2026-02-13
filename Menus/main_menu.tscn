@@ -53,6 +53,18 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 60
 corner_radius_bottom_left = 20
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vxn86"]
+bg_color = Color(0.8343715, 0.4970916, 0.41088095, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.37181717, 3.7902967e-07, 4.813075e-08, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
 [node name="MainMenu" type="Control" unique_id=327771935]
 layout_mode = 3
 anchors_preset = 15
@@ -80,9 +92,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -825.0
-offset_top = -206.0
+offset_top = -360.0
 offset_right = 825.0
-offset_bottom = 206.0
+offset_bottom = 52.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_7vrkn")
@@ -95,9 +107,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -341.0
-offset_top = -189.0
+offset_top = -343.0
 offset_right = 403.0
-offset_bottom = -110.0
+offset_bottom = -264.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "ADUM MOTO RETURNS"
@@ -112,9 +124,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -341.0
-offset_top = 202.0
+offset_top = 48.0
 offset_right = 403.0
-offset_bottom = 281.0
+offset_bottom = 127.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Game Completion: 10.5%"
@@ -142,9 +154,9 @@ text = "Quit"
 [node name="Achievements" type="Button" parent="." unique_id=287445138]
 layout_mode = 0
 offset_left = 668.0
-offset_top = 833.0
+offset_top = 721.0
 offset_right = 937.0
-offset_bottom = 917.0
+offset_bottom = 805.0
 theme = ExtResource("4_jix8l")
 theme_override_font_sizes/font_size = 31
 theme_override_styles/normal = SubResource("StyleBoxFlat_11gta")
@@ -153,9 +165,9 @@ text = "Achievements"
 [node name="Options" type="Button" parent="." unique_id=244907946]
 layout_mode = 0
 offset_left = 974.0
-offset_top = 833.0
+offset_top = 721.0
 offset_right = 1243.0
-offset_bottom = 917.0
+offset_bottom = 805.0
 theme = ExtResource("4_jix8l")
 theme_override_font_sizes/font_size = 31
 theme_override_styles/normal = SubResource("StyleBoxFlat_cxdly")
@@ -171,8 +183,19 @@ theme = ExtResource("4_jix8l")
 theme_override_styles/normal = SubResource("StyleBoxFlat_jix8l")
 text = "Levels"
 
+[node name="LevelEditor" type="Button" parent="." unique_id=1471028045]
+layout_mode = 0
+offset_left = 974.0
+offset_top = 833.0
+offset_right = 1243.0
+offset_bottom = 917.0
+theme = ExtResource("4_jix8l")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vxn86")
+text = "Editor"
+
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Achievements" to="." method="_on_achievements_pressed"]
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="LevelSelect" to="." method="_on_level_select_pressed"]
+[connection signal="pressed" from="LevelEditor" to="." method="_on_level_editor_pressed"]

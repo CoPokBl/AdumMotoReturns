@@ -21,9 +21,14 @@ func _on_achievements_pressed() -> void:
 	get_tree().change_scene_to_file("res://Menus/achievements_menu.tscn")
 
 
+func _on_level_editor_pressed() -> void:
+	get_tree().change_scene_to_file("res://Menus/level_editor.tscn")
+
+
 func _on_quit_pressed() -> void:
 	get_tree().quit()
 
 
 func _on_options_pressed() -> void:
 	get_tree().change_scene_to_file("res://Menus/options_menu.tscn")
+	

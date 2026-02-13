@@ -28,6 +28,7 @@ scale = Vector2(14.415994, 0.44)
 
 [node name="Bouncy" parent="." unique_id=366558477 instance=ExtResource("4_yvicu")]
 position = Vector2(2440, 675)
+scale = Vector2(21.056, 0.44)
 physics_material_override = SubResource("PhysicsMaterial_kn11c")
 
 [node name="Platform3" parent="." unique_id=199034875 instance=ExtResource("3_qsjsh")]
@@ -36,6 +37,7 @@ scale = Vector2(22.975994, 0.44)
 
 [node name="Bouncy2" parent="." unique_id=1151517700 instance=ExtResource("4_yvicu")]
 position = Vector2(9693, 675)
+scale = Vector2(21.056, 0.44)
 physics_material_override = SubResource("PhysicsMaterial_kn11c")
 
 [node name="Platform4" parent="." unique_id=1873377097 instance=ExtResource("3_qsjsh")]

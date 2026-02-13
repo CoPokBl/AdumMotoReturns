@@ -8,7 +8,6 @@
 
 [node name="Level" type="Node2D" unique_id=1046853199 node_paths=PackedStringArray("player")]
 script = ExtResource("1_dj5hn")
-number = 2
 player = NodePath("Player")
 
 [node name="Player" parent="." unique_id=1501689367 instance=ExtResource("2_ojro4")]
@@ -16,6 +15,7 @@ visible = false
 position = Vector2(85, -163)
 
 [node name="Platform" parent="." unique_id=69979720 instance=ExtResource("3_xv7eh")]
+scale = Vector2(22.639997, 0.43999994)
 
 [node name="Platform2" parent="." unique_id=859082933 instance=ExtResource("3_xv7eh")]
 position = Vector2(1496.9999, 25.000076)

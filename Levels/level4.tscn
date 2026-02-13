@@ -12,7 +12,6 @@ font_size = 31
 
 [node name="Level" type="Node2D" unique_id=1046853199 node_paths=PackedStringArray("player")]
 script = ExtResource("1_btbpw")
-number = 4
 void_death_level = 1000
 player = NodePath("Player")
 
@@ -29,6 +28,7 @@ visible = false
 position = Vector2(85, -163)
 
 [node name="Platform" parent="." unique_id=69979720 instance=ExtResource("3_ukveq")]
+scale = Vector2(21.056, 0.44)
 
 [node name="Win" parent="." unique_id=886161782 instance=ExtResource("4_g4w76")]
 position = Vector2(1800, -1184)

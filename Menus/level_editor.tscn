@@ -1,0 +1,443 @@
+[gd_scene format=3 uid="uid://rc3cgj20tg28"]
+
+[ext_resource type="Theme" uid="uid://biakj4sw07nf" path="res://theme.tres" id="1_6bpjn"]
+[ext_resource type="Script" uid="uid://ql4pab5gu5t6" path="res://Menus/level_editor.gd" id="1_myjlo"]
+[ext_resource type="Texture2D" uid="uid://dxd3yyn7or1a4" path="res://Assets/adum.png" id="2_lcd5s"]
+[ext_resource type="Texture2D" uid="uid://dm1buivai6gds" path="res://Assets/adum_cold.png" id="3_lyaaa"]
+[ext_resource type="Script" uid="uid://nmuy0dmspbv6" path="res://Menus/editor_camera.gd" id="4_g5uux"]
+[ext_resource type="Texture2D" uid="uid://bulqp0r1tnyqi" path="res://Assets/adum_bouncy.png" id="4_tr6gr"]
+[ext_resource type="Texture2D" uid="uid://b3k6j77umb1tc" path="res://Assets/pewpew.png" id="5_0fr5m"]
+[ext_resource type="Texture2D" uid="uid://drh3ncqiimpd1" path="res://Assets/HardHat.png" id="6_o2wnj"]
+[ext_resource type="Texture2D" uid="uid://1adqsmq6e8bt" path="res://Assets/teslacoil.png" id="7_ifg0g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_myjlo"]
+bg_color = Color(0.8343715, 0.4970916, 0.41088095, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.37181717, 3.7902967e-07, 4.813075e-08, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 20
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lcd5s"]
+radius = 1.0
+
+[node name="LevelEditor" type="Control" unique_id=1905342064]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_myjlo")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1127260376]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1295230813]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control" unique_id=1532007732]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="EditorButtons" type="Control" parent="CanvasLayer/Control/HBoxContainer" unique_id=1303415269]
+custom_minimum_size = Vector2(294, 0)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/HBoxContainer/EditorButtons" unique_id=798103280]
+layout_mode = 0
+offset_right = 294.0
+offset_bottom = 1078.0
+color = Color(0.13603294, 0.042279795, 0.0027252473, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/EditorButtons" unique_id=564086994]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 199.0
+offset_bottom = -104.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
+
+[node name="Control" type="Control" parent="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer" unique_id=2015763744]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/Control" unique_id=215129982]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.5
+offset_top = -49.0
+offset_right = 120.5
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/Control/VBoxContainer" unique_id=1029748007]
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "Mouse Mode:"
+horizontal_alignment = 1
+
+[node name="Mode" type="Label" parent="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/Control/VBoxContainer" unique_id=1098301664]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "SELECTION"
+horizontal_alignment = 1
+
+[node name="ToolButtons" type="CenterContainer" parent="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer" unique_id=464498220]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/ToolButtons" unique_id=912820970]
+layout_mode = 2
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12
+columns = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/ToolButtons/GridContainer" unique_id=974246168]
+custom_minimum_size = Vector2(86.655, 82.89)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/ToolButtons/GridContainer/Button" unique_id=995977978]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 82.89)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_lcd5s")
+expand_mode = 3
+
+[node name="Button2" type="Button" parent="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/ToolButtons/GridContainer" unique_id=208580233]
+custom_minimum_size = Vector2(86.655, 82.89)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/ToolButtons/GridContainer/Button2" unique_id=1435035476]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 82.89)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_lyaaa")
+expand_mode = 3
+
+[node name="Button3" type="Button" parent="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/ToolButtons/GridContainer" unique_id=1623504458]
+custom_minimum_size = Vector2(86.655, 82.89)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/ToolButtons/GridContainer/Button3" unique_id=171745595]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 82.89)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_tr6gr")
+expand_mode = 3
+
+[node name="Button4" type="Button" parent="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/ToolButtons/GridContainer" unique_id=1443893126]
+custom_minimum_size = Vector2(86.655, 82.89)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/ToolButtons/GridContainer/Button4" unique_id=1283966561]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 82.89)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_0fr5m")
+expand_mode = 3
+
+[node name="Button5" type="Button" parent="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/ToolButtons/GridContainer" unique_id=358821067]
+custom_minimum_size = Vector2(86.655, 82.89)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/ToolButtons/GridContainer/Button5" unique_id=1214674035]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 82.89)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("6_o2wnj")
+expand_mode = 3
+
+[node name="Button6" type="Button" parent="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/ToolButtons/GridContainer" unique_id=700530768]
+custom_minimum_size = Vector2(86.655, 82.89)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/ToolButtons/GridContainer/Button6" unique_id=1243801552]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 82.89)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_lcd5s")
+expand_mode = 3
+
+[node name="Button7" type="Button" parent="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/ToolButtons/GridContainer" unique_id=1297805868]
+custom_minimum_size = Vector2(86.655, 82.89)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/ToolButtons/GridContainer/Button7" unique_id=1176513600]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 82.89)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_lcd5s")
+expand_mode = 3
+
+[node name="Button8" type="Button" parent="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/ToolButtons/GridContainer" unique_id=2011061198]
+custom_minimum_size = Vector2(86.655, 82.89)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/ToolButtons/GridContainer/Button8" unique_id=1816012296]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 82.89)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_lcd5s")
+expand_mode = 3
+
+[node name="Button9" type="Button" parent="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/ToolButtons/GridContainer" unique_id=1605046439]
+custom_minimum_size = Vector2(86.655, 82.89)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/ToolButtons/GridContainer/Button9" unique_id=1960459355]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 82.89)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_lcd5s")
+expand_mode = 3
+
+[node name="Button10" type="Button" parent="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/ToolButtons/GridContainer" unique_id=568571954]
+custom_minimum_size = Vector2(86.655, 82.89)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/ToolButtons/GridContainer/Button10" unique_id=1214008896]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 82.89)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("7_ifg0g")
+expand_mode = 3
+
+[node name="Control2" type="Control" parent="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer" unique_id=1858821072]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/Control2" unique_id=1968997114]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.5
+offset_top = -49.0
+offset_right = 120.5
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/Control2/VBoxContainer" unique_id=1386721377]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Controls:"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/Control2/VBoxContainer" unique_id=1361615770]
+layout_mode = 2
+columns = 2
+
+[node name="Mode" type="Label" parent="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/Control2/VBoxContainer/GridContainer" unique_id=1814385442]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Q: Select"
+horizontal_alignment = 1
+
+[node name="Mode2" type="Label" parent="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/Control2/VBoxContainer/GridContainer" unique_id=32588505]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "W: Move"
+horizontal_alignment = 1
+
+[node name="Mode3" type="Label" parent="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/Control2/VBoxContainer/GridContainer" unique_id=1630138669]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "E: Scale"
+horizontal_alignment = 1
+
+[node name="Mode4" type="Label" parent="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/Control2/VBoxContainer/GridContainer" unique_id=559094407]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "R: Rotate"
+horizontal_alignment = 1
+
+[node name="Mode5" type="Label" parent="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/Control2/VBoxContainer/GridContainer" unique_id=369264568]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Space: Global"
+horizontal_alignment = 1
+
+[node name="Create" type="Button" parent="CanvasLayer/Control/HBoxContainer/EditorButtons" unique_id=602033232]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 281.0
+offset_bottom = 96.000244
+theme = ExtResource("1_6bpjn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_myjlo")
+text = "Create
+"
+
+[node name="Load" type="Button" parent="CanvasLayer/Control/HBoxContainer/EditorButtons" unique_id=1056226215]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 108.0
+offset_right = 281.0
+offset_bottom = 192.00009
+theme = ExtResource("1_6bpjn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_myjlo")
+text = "Load
+"
+
+[node name="Back" type="Button" parent="CanvasLayer/Control/HBoxContainer/EditorButtons" unique_id=861508349]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 984.0
+offset_right = 281.0
+offset_bottom = 1068.0001
+theme = ExtResource("1_6bpjn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_myjlo")
+text = "Back
+
+"
+
+[node name="Viewport" type="Control" parent="CanvasLayer/Control/HBoxContainer" unique_id=1903782527]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Warning" type="Control" parent="CanvasLayer/Control/HBoxContainer/Viewport" unique_id=315051657]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/Control/HBoxContainer/Viewport/Warning" unique_id=74625615]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.64705884)
+
+[node name="WarningLabel" type="Label" parent="CanvasLayer/Control/HBoxContainer/Viewport/Warning" unique_id=1216470320]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -596.5
+offset_top = -89.5
+offset_right = 596.5
+offset_bottom = 89.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "Press Create or Load to use The Editor!
+"
+
+[node name="Node2D" type="Node2D" parent="." unique_id=2111328673]
+
+[node name="Area2D" type="Area2D" parent="Node2D" unique_id=245927126]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D" unique_id=170920329]
+shape = SubResource("CircleShape2D_lcd5s")
+
+[node name="Camera2D" type="Camera2D" parent="Node2D" unique_id=683188201]
+script = ExtResource("4_g5uux")
+
+[node name="EditorItems" type="Node2D" parent="Node2D" unique_id=1850016081]
+unique_name_in_owner = true
+z_index = -1
+
+[connection signal="button_down" from="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/ToolButtons/GridContainer/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/ToolButtons/GridContainer/Button2" to="." method="_on_button_2_button_down"]
+[connection signal="button_down" from="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/ToolButtons/GridContainer/Button3" to="." method="_on_button_3_button_down"]
+[connection signal="button_down" from="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/ToolButtons/GridContainer/Button4" to="." method="_on_button_4_button_down"]
+[connection signal="button_down" from="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/ToolButtons/GridContainer/Button5" to="." method="_on_button_5_button_down"]
+[connection signal="button_down" from="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/ToolButtons/GridContainer/Button6" to="." method="_on_button_6_button_down"]
+[connection signal="button_down" from="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/ToolButtons/GridContainer/Button7" to="." method="_on_button_7_button_down"]
+[connection signal="button_down" from="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/ToolButtons/GridContainer/Button8" to="." method="_on_button_8_button_down"]
+[connection signal="button_down" from="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/ToolButtons/GridContainer/Button9" to="." method="_on_button_9_button_down"]
+[connection signal="button_down" from="CanvasLayer/Control/HBoxContainer/EditorButtons/VBoxContainer/ToolButtons/GridContainer/Button10" to="." method="_on_button_10_button_down"]
+[connection signal="pressed" from="CanvasLayer/Control/HBoxContainer/EditorButtons/Create" to="." method="_on_create_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/HBoxContainer/EditorButtons/Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/HBoxContainer/EditorButtons/Back" to="." method="_on_back_pressed"]
+[connection signal="gui_input" from="CanvasLayer/Control/HBoxContainer/Viewport" to="." method="_on_warning_gui_input"]
