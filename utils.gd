@@ -195,7 +195,7 @@ func start_speedrun() -> void:
 func submit_speedrun() -> void:
 	var time: float = speedrunning_stopwatch.time
 	var current_best: float = get_save("speedrun", "best", -1)
-	if current_best != -1 && time <= current_best:
+	if current_best != -1 && time >= current_best:
 		# not new best
 		return
 	

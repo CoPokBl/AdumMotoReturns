@@ -28,7 +28,7 @@ func win():
 	# timings
 	var score: float = clock.time
 	var prev_best: float = Utils.get_save("level_times", "level" + str(number), -1)
-	if prev_best == -1 || score > prev_best:
+	if prev_best == -1 || score < prev_best:
 		# new best
 		Utils.set_save("level_times", "level" + str(number), score)
 	
