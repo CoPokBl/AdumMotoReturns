@@ -12,8 +12,8 @@ func _ready() -> void:
 	# level times
 	for i: int in range(1, Utils.MAX_LEVEL+1):
 		var time: float = Utils.get_save("level_times", "level" + str(i), -1)
-		var str: String = "N/A" if time == -1 else Stopwatch.format_time(time)
-		%Run.text += "\n" + "Level " + str(i) + ": " + str
+		var timestr: String = "N/A" if time == -1 else Stopwatch.format_time(time)
+		%Run.text += "\n" + "Level " + str(i) + ": " + timestr
 
 
 func _on_back_pressed() -> void:
