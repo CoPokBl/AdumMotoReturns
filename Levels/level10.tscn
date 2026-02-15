@@ -36,8 +36,7 @@ trans = 1
 texture = ExtResource("3_8pwim")
 
 [node name="Player" parent="." unique_id=1501689367 instance=ExtResource("2_huu3n")]
-visible = false
-position = Vector2(-387, -125)
+position = Vector2(-371, -437)
 control_mode = 1
 
 [node name="Platform" parent="." unique_id=69979720 instance=ExtResource("3_k6bdi")]
@@ -57,6 +56,23 @@ scale = Vector2(1.4125, 0.41996074)
 [node name="Platform22" parent="." unique_id=2039642211 instance=ExtResource("3_k6bdi")]
 position = Vector2(735, 401.99997)
 rotation = -0.7853982
+scale = Vector2(1.4125, 0.41996074)
+
+[node name="Platform26" parent="." unique_id=821556328 instance=ExtResource("3_k6bdi")]
+position = Vector2(-243, -434)
+rotation = -1.5707964
+scale = Vector2(2.0156627, 0.41996074)
+
+[node name="Platform28" parent="." unique_id=773767663 instance=ExtResource("3_k6bdi")]
+position = Vector2(-377, -553)
+scale = Vector2(1.4125, 0.41996074)
+
+[node name="Platform29" parent="." unique_id=1868961065 instance=ExtResource("3_k6bdi")]
+position = Vector2(-377, -553)
+scale = Vector2(1.4125, 0.41996074)
+
+[node name="Platform27" parent="." unique_id=221265110 instance=ExtResource("3_k6bdi")]
+position = Vector2(-374, -316)
 scale = Vector2(1.4125, 0.41996074)
 
 [node name="Platform20" parent="." unique_id=2058008765 instance=ExtResource("3_k6bdi")]
@@ -176,7 +192,7 @@ position = Vector2(4.5, 16)
 shape = SubResource("RectangleShape2D_dljca")
 
 [node name="Bouncy" parent="." unique_id=115616767 instance=ExtResource("7_i4p8i")]
-position = Vector2(2157, -61.000015)
+position = Vector2(2168, -68.00011)
 rotation = -0.7853982
 scale = Vector2(1.2894285, 0.5730974)
 
@@ -216,6 +232,11 @@ position = Vector2(1765, -839.99994)
 rotation = -2.0943952
 scale = Vector2(1.2894285, 0.5730974)
 
+[node name="Bouncy5" parent="." unique_id=1650876923 instance=ExtResource("7_i4p8i")]
+position = Vector2(-845.00006, -113.000015)
+rotation = -1.8325958
+scale = Vector2(1.2894285, 0.5730974)
+
 [node name="Bouncy8" parent="." unique_id=1168050795 instance=ExtResource("7_i4p8i")]
 position = Vector2(212.99998, -1154.0001)
 rotation = -2.0943952
@@ -251,8 +272,8 @@ ease_type = 0
 trans = 4
 
 [node name="Translate3" parent="." unique_id=895302755 instance=ExtResource("5_oi6n1")]
-position = Vector2(-8, -397)
-time = 0.8
+position = Vector2(6, -390)
+time = 0.75
 direction = Vector2(0, 480)
 trans = 1
 

@@ -118,9 +118,15 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Fullscreen"
 
+[node name="LevelTimer" type="CheckBox" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=94604356]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Level Timer"
+
 [connection signal="pressed" from="BackButton" to="." method="_on_back_pressed"]
 [connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/MasterVolume" to="." method="_on_master_volume_value_changed"]
 [connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/MusicVolume" to="." method="_on_music_volume_value_changed"]
 [connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/SoundsVolume" to="." method="_on_sound_volume_value_changed"]
 [connection signal="toggled" from="PanelContainer/MarginContainer/VBoxContainer/CenterCursor" to="." method="_on_center_cursor_toggled"]
 [connection signal="toggled" from="PanelContainer/MarginContainer/VBoxContainer/Fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="toggled" from="PanelContainer/MarginContainer/VBoxContainer/LevelTimer" to="." method="_on_level_timer_toggled"]

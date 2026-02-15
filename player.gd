@@ -53,13 +53,17 @@ func _ready() -> void:
 	for pack: Node2D in packs:
 		pack.queue_free()
 	
-	if !Utils.speedrunning:
+	if !Utils.speedrunning && !Utils.get_save("gameplay", "level_timer", false):
 		%SpeedrunTimer.visible = false
 
 
 func _process(_delta: float) -> void:
 	%CloudParallax/Cloud.position.y = body.position.y
-	%SpeedrunTimer.text = Utils.speedrunning_stopwatch.get_time_string()
+	
+	if Utils.speedrunning:
+		%SpeedrunTimer.text = Utils.speedrunning_stopwatch.get_time_string()
+	else:
+		%SpeedrunTimer.text = Utils.get_current_level().clock.get_time_string()
 
 
 func _physics_process(_delta: float) -> void:

@@ -5,6 +5,7 @@ extends Control
 
 
 func _ready() -> void:
+	Utils.speedrunning = false
 	completion_label.text = "Game Completion: " + str(round(Utils.calc_game_completion()*100)) + "%"
 	if !Achievements.get_granted_achievements().has("win"):
 		speedrun.disabled = true

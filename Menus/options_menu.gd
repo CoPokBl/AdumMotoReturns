@@ -5,6 +5,7 @@ extends Control
 @onready var sounds_volume = %SoundsVolume
 @onready var center_cursor: CheckBox = %CenterCursor
 @onready var fullscreen: CheckBox = %Fullscreen
+@onready var level_timer: CheckBox = %LevelTimer
 
 
 func _ready() -> void:
@@ -13,6 +14,7 @@ func _ready() -> void:
 	sounds_volume.value = AudioServer.get_bus_volume_linear(AudioServer.get_bus_index("Sounds"))
 	center_cursor.button_pressed = Utils.get_save("cursor", "center", false)
 	fullscreen.button_pressed = Utils.get_save("window", "fullscreen", false)
+	level_timer.button_pressed = Utils.get_save("gameplay", "level_timer", false)
 
 
 func _on_master_volume_value_changed(value: float) -> void:
@@ -42,3 +44,7 @@ func _on_center_cursor_toggled(value: bool) -> void:
 func _on_fullscreen_toggled(value: bool) -> void:
 	Utils.set_save("window", "fullscreen", value)
 	get_window().mode = Window.MODE_FULLSCREEN if value else Window.MODE_WINDOWED
+
+
+func _on_level_timer_toggled(toggled_on: bool) -> void:
+	Utils.set_save("gameplay", "level_timer", toggled_on)

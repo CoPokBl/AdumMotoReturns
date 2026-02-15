@@ -2,11 +2,15 @@
 
 [ext_resource type="Script" uid="uid://cyg08ov6caeox" path="res://Levels/level.gd" id="1_t21ke"]
 [ext_resource type="PackedScene" uid="uid://bpfivjsbt6mq7" path="res://player.tscn" id="2_fy36t"]
+[ext_resource type="Script" uid="uid://d1ork5v7j8ou8" path="res://Levels/restart_tut.gd" id="3_j32wv"]
 [ext_resource type="PackedScene" uid="uid://dvxcgrj50lify" path="res://LevelAssets/platform.tscn" id="3_njhy2"]
 [ext_resource type="PackedScene" uid="uid://26tvrf5g2hp8" path="res://LevelAssets/win.tscn" id="4_njhy2"]
 [ext_resource type="PackedScene" uid="uid://raxkg36jlp8" path="res://LevelAssets/die.tscn" id="5_m6f6w"]
 [ext_resource type="PackedScene" uid="uid://g4v7emf5ayub" path="res://LevelAssets/Spinny.tscn" id="6_302sc"]
 [ext_resource type="Texture2D" uid="uid://1adqsmq6e8bt" path="res://Assets/teslacoil.png" id="7_aunfx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_j32wv"]
+font_size = 74
 
 [sub_resource type="LabelSettings" id="LabelSettings_aunfx"]
 font_size = 181
@@ -16,8 +20,17 @@ size = Vector2(67, 61)
 
 [node name="Level" type="Node2D" unique_id=1046853199 node_paths=PackedStringArray("player")]
 script = ExtResource("1_t21ke")
-number = 1
 player = NodePath("Player")
+
+[node name="RestartTut" type="Label" parent="." unique_id=629175676]
+offset_left = 289.0
+offset_top = -432.0
+offset_right = 1014.0
+offset_bottom = -225.0
+text = "Press 'R' to restart"
+label_settings = SubResource("LabelSettings_j32wv")
+autowrap_mode = 2
+script = ExtResource("3_j32wv")
 
 [node name="Player" parent="." unique_id=1501689367 instance=ExtResource("2_fy36t")]
 visible = false

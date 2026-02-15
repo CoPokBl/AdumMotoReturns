@@ -18,6 +18,14 @@ func _ready() -> void:
 	clock.restart()
 
 
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("restart"):
+		die(true)
+	
+	if Utils.speedrunning && Input.is_action_just_pressed("restart_speedrun"):
+		Utils.start_speedrun()
+
+
 func win():
 	if not _win():
 		return
