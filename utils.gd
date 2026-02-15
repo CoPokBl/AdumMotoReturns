@@ -7,6 +7,8 @@ var click_sound: AudioStreamOggVorbis = preload("res://Assets/click.ogg")
 
 var deaths: int = 0  # reset on new level
 var current_level: int = -1
+var speedrunning: bool = false
+var speedrunning_stopwatch: Stopwatch
 
 var _sound_player: AudioStreamPlayer
 var _loading_level: bool = false
@@ -36,6 +38,9 @@ func _ready() -> void:
 	
 	update_cursor()
 	get_window().mode = Window.MODE_FULLSCREEN if get_save("window", "fullscreen", false) else Window.MODE_WINDOWED
+	
+	speedrunning_stopwatch = Stopwatch.new()
+	add_child(speedrunning_stopwatch)
 	
 	# process flags
 	var level_to_load: int = -1
@@ -130,6 +135,9 @@ func next_level() -> void:
 	var possible: bool = load_level(current + 1)
 	if !possible:
 		# Win
+		if speedrunning:
+			submit_speedrun()
+			speedrunning = false
 		change_scene.call_deferred("res://Menus/main_menu.tscn")
 
 
@@ -176,3 +184,21 @@ func set_save(section: String, key: String, value: Variant) -> void:
 
 func get_save(section: String, key: String, default: Variant = null) -> Variant:
 	return _save.get_value(section, key, default)
+
+
+func start_speedrun() -> void:
+	speedrunning = true
+	speedrunning_stopwatch.restart()
+	load_level(1)
+
+
+func submit_speedrun() -> void:
+	var time: float = speedrunning_stopwatch.time
+	var current_best: float = get_save("speedrun", "best", -1)
+	if current_best != -1 && time <= current_best:
+		# not new best
+		return
+	
+	# new best
+	set_save("speedrun", "best", time)
+	set_save("speedrun", "levels", MAX_LEVEL)

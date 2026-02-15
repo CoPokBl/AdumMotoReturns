@@ -1,10 +1,14 @@
 extends Control
 
 @onready var completion_label: Label = $Completion
+@onready var speedrun: Button = $Speedrun
 
 
 func _ready() -> void:
 	completion_label.text = "Game Completion: " + str(round(Utils.calc_game_completion()*100)) + "%"
+	if !Achievements.get_granted_achievements().has("win"):
+		speedrun.disabled = true
+		speedrun.tooltip_text = "You must beat all levels before you can speedrun."
 
 
 func _on_play_pressed() -> void:
@@ -31,4 +35,7 @@ func _on_quit_pressed() -> void:
 
 func _on_options_pressed() -> void:
 	get_tree().change_scene_to_file("res://Menus/options_menu.tscn")
-	
+
+
+func _on_speedrun_pressed() -> void:
+	get_tree().change_scene_to_file("res://Menus/speedrun_menu.tscn")

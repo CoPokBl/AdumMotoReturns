@@ -113,6 +113,13 @@ text = "Deaths:"
 label_settings = SubResource("LabelSettings_onrkg")
 horizontal_alignment = 1
 
+[node name="SpeedrunTimer" type="Label" parent="Cam/UI/VBoxContainer" unique_id=1403514869]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Deaths:"
+label_settings = SubResource("LabelSettings_onrkg")
+horizontal_alignment = 1
+
 [node name="Restart" type="Button" parent="Cam/UI" unique_id=631448054]
 layout_mode = 1
 anchors_preset = 1

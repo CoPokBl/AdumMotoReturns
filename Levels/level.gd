@@ -9,6 +9,13 @@ var dead: bool = false
 var number:
 	get:
 		return Utils.current_level
+var clock: Stopwatch
+
+
+func _ready() -> void:
+	clock = Stopwatch.new()
+	add_child(clock)
+	clock.restart()
 
 
 func win():
@@ -17,6 +24,14 @@ func win():
 	
 	if dead:
 		Achievements.grant("winwhiledead")
+	
+	# timings
+	var score: float = clock.time
+	var prev_best: float = Utils.get_save("level_times", "level" + str(number), -1)
+	if prev_best == -1 || score > prev_best:
+		# new best
+		Utils.set_save("level_times", "level" + str(number), score)
+	
 	Utils.win()
 
 

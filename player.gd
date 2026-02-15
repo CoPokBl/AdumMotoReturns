@@ -52,10 +52,14 @@ func _ready() -> void:
 	
 	for pack: Node2D in packs:
 		pack.queue_free()
+	
+	if !Utils.speedrunning:
+		%SpeedrunTimer.visible = false
 
 
 func _process(_delta: float) -> void:
 	%CloudParallax/Cloud.position.y = body.position.y
+	%SpeedrunTimer.text = Utils.speedrunning_stopwatch.get_time_string()
 
 
 func _physics_process(_delta: float) -> void:
